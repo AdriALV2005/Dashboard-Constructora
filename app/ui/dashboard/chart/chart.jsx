@@ -13,46 +13,46 @@ import {
 
 const data = [
   {
-    name: "Sun",
+    name: "enero",
     visit: 4000,
     click: 2400,
   },
   {
-    name: "Mon",
+    name: "feb",
     visit: 3000,
     click: 1398,
   },
   {
-    name: "Tue",
+    name: "mar",
     visit: 2000,
     click: 3800,
   },
   {
-    name: "Wed",
+    name: "abril",
     visit: 2780,
     click: 3908,
   },
   {
-    name: "Thu",
+    name: "mayo",
     visit: 1890,
     click: 4800,
   },
   {
-    name: "Fri",
+    name: "jun",
     visit: 2390,
     click: 3800,
   },
   {
-    name: "Sat",
-    visit: 3490,
-    click: 4300,
+    name: "jul",
+    visit: 2500,
+    click: 2000,
   },
 ];
 
 const Chart = () => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Weekly Recap</h2>
+      <h2 className={styles.title}>cantidad de caches de  bryan - adribell</h2>
       <ResponsiveContainer width="100%" height="90%">
         <LineChart
           width={500}
