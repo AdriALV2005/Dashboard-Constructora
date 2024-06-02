@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <div>
       <div className={styles.container}>
-        <div className={styles.Logo}>samara bonita</div>
-        <div className={styles.text}>© amamos a canserbero</div>
+        <div className={styles.logo}>samara bonita</div>
+        <div className={styles.text}>©  a canserbero</div>
       </div>
     </div>
   );
