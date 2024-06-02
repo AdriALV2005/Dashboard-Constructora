@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import styles from "@/app/ui/login/login.module.css";
 
-const LUPITALOGIN = () => { 
+const LoginPage = () => {
   return (
-    <div>LUPITALOGIN</div>
-  )
-}
+    <div className={styles.container}>
+      <form action="" className={styles.form}>
+        <h1>iniciar sesion</h1>
+        <input type="text" placeholder="usuario" />
+        <input type="password" placeholder="contraseña" />
+        <button>INGRESAR</button>
+      </form>
+    </div>
+  );
+};
 
-export default LUPITALOGIN
+export default LoginPage;
