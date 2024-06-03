@@ -40,7 +40,8 @@ export const { signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-  callbacks: {
+  // sirve para que se pueda acceder a la sesion desde el cliente
+  callbacks: {//sirve para que se pueda acceder a la sesion desde el cliente
     async jwt({ token, user }) {
       if (user) {
         token.username = user.username;
@@ -51,7 +52,7 @@ export const { signIn, signOut, auth } = NextAuth({
     async session({ session, token }) {
       if (token) {
         session.user.username = token.username;
-        session.user.img = token.img;
+        session.user.img = token.img;//agregamos la imagen al objeto de sesion
       }
       return session;
     },

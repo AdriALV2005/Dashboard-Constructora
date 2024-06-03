@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { Product, User } from "./models";
 import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
+
 import bcrypt from "bcrypt";
 import {signIn} from "@/app/auth";
 
@@ -153,13 +154,12 @@ export const deleteUser = async (formData) => {
   revalidatePath("/dashboard/users");
 };
 
-export const authenticate = async ( formData) => {
+export const authenticate = async ( preveState,formData) => {//
   const { username, password } = Object.fromEntries(formData);
 
   try {
     await signIn("credentials", { username, password });
   } catch (err) {
-   console.log(err)
-    throw err;
+   return "credenciles incorrectas";
   }
 };
