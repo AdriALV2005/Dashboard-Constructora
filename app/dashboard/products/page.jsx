@@ -7,7 +7,7 @@ import Pagination from "@/app/ui/dashboard/pagination/pagination"
 import { fetchProducts } from '@/app/lib/data'
 
 
-const Products = async({searchParams}) => {
+const ProductsPage = async({searchParams}) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const { count, products } = await fetchProducts(q, page);
@@ -73,4 +73,5 @@ const Products = async({searchParams}) => {
   )
 }
 
-export default Products
+export default ProductsPage
+
