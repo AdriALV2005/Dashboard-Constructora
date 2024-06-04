@@ -5,6 +5,7 @@
   border-radius: 15px;
   background-color: white;
   display: flex;
+  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.1); 
   flex-direction: row;
 }
 .div {

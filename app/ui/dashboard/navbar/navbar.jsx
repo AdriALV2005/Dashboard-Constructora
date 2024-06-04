@@ -24,6 +24,10 @@ const Navbar = () => {
     title = "BRYAN PUTA";
   } else if (pathname === "/dashboard/products") {
     title = "BRYAN BONITO";
+  } else if (pathname.startsWith("/dashboard/users/")) {
+    title = "LUPITA USUARIO PRUEBA";
+  }else if (pathname.startsWith("/dashboard/products/")) {
+    title = "LUPITA PRODUCTO PRUEBA";
   }
 
   return (

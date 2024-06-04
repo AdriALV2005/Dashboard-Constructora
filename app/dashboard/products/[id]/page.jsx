@@ -9,12 +9,7 @@ const SingleProductPage = async ({ params }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.infoContainer}>
-        <div className={styles.imgContainer}>
-          <Image src="/noavatar.png" alt="" fill />
-        </div>
-        {product.title}
-      </div>
+      
       <div className={styles.formContainer}>
         <form action={updateProduct} className={styles.form}>
           <input type="hidden" name="id" value={product.id} />
