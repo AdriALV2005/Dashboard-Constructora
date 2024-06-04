@@ -5,7 +5,12 @@
   }
   
   .button{
-    padding: 5px 10px;
+    background-color: #6f6af8;
+    padding: 7px 23px;
+    color: #f2f2fc;
+    border-radius: 10vh;
+    border: none;
+    margin-top: 2rem;
     cursor: pointer;
   }
   

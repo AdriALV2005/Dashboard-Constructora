@@ -1,31 +1,63 @@
 .form {
-  background-color: var(--bgSoft);
-  padding: 50px;
-  border-radius: 10px;
-  width: 500px;
-  height: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+  color: black;
+  border-radius: 15px;
+  background-color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 30px;
-  align-items: center;
+  flex-direction: row;
+}
+.div {
+  padding: 80px 100px;
+}
+.form input:focus {
+  outline: none; /* Elimina el contorno predeterminado al enfocar */
+  border-color: #6f6af8; /* Cambia el color del borde a rojo al enfocarse */
+}
+.form img {
+  width: 30rem;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.form h3 {
+  font-size: 15px;
+  margin-bottom: 9px;
+}
+.form h1 {
+  font-weight: bold;
 }
 
+.form p {
+  margin-bottom: 1.8rem;
+  color: #a3aed0;
+  font-size: 13px;
+  font-weight: 400;
+}
 .form input {
-  padding: 30px;
-  border: 2px solid #2e374a;
-  border-radius: 5px;
-  background-color: var(--bg);
-  color: var(--text);
   width: 100%;
+  padding: 10px;
+  margin-bottom: 30px;
+  border: 1px solid #a3aed0;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.form input::placeholder {
+  color: #a3aed0; /* Color rojo para el placeholder */
 }
 
 .form button {
-  padding: 30px;
-  background-color: teal;
-  color: var(--text);
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
   width: 100%;
+  padding: 10px;
+  background-color: #6f6af8;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form button:hover {
+  background-color: #6f6af8;
 }

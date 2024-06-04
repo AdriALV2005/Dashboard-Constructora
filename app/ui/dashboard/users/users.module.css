@@ -68,9 +68,15 @@
   }
 
   /* users.module.css */
+/* users.module.css */
+
+
+
 
 .table thead td {
   position: relative;
+  color: #A3AED0;
+  
 }
 
 .table thead td::after {
