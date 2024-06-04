@@ -44,7 +44,7 @@ const menuItems = [
       },
       {
         title: "Contratos",
-        path: "/dashboard/transactions",
+        path: "/dashboard/contracts",
         icon: <MdWork />,
       },
     ],

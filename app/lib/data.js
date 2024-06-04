@@ -1,4 +1,4 @@
-import { Product, User, Employee, Client} from "./models";
+import { Product, User, Employee, Client , Contract} from "./models";
 import { connectToDB } from "./utils";
 
 export const fetchUsers = async (q, page) => {
@@ -17,14 +17,12 @@ export const fetchUsers = async (q, page) => {
   }
 };
 
-//sirve para buscar usuarios en la base de datos por su id
 export const fetchUser = async (id) => {
   try {
     connectToDB();
-    const user = await User.findById(id)
+    const user = await User.findById(id);
     return user;
   } catch (err) {
-
     throw new Error("Failed to fetch user!");
   }
 };
@@ -40,7 +38,6 @@ export const fetchProducts = async (q, page) => {
       .skip(ITEM_PER_PAGE * (page - 1));
     return { count, products };
   } catch (err) {
-
     throw new Error("Failed to fetch Product!");
   }
 };
@@ -48,15 +45,12 @@ export const fetchProducts = async (q, page) => {
 export const fetchProduct = async (id) => {
   try {
     connectToDB();
-    const product = await Product.findById(id)
+    const product = await Product.findById(id);
     return product;
   } catch (err) {
-
     throw new Error("Failed to fetch product!");
   }
 };
-
-
 
 //----------------------trabajadores ------------------------------
 
@@ -75,19 +69,17 @@ export const fetchEmployees = async (q, page) => {
     throw new Error("error trabajadores ...!");
   }
 };
-export const fetchEmployee= async (id) => {
+export const fetchEmployee = async (id) => {
   try {
     connectToDB();
-    const employee = await Employee.findById(id)
+    const employee = await Employee.findById(id);
     return employee;
   } catch (err) {
-
     throw new Error("Failed to fetch employee!");
   }
 };
 
 //----------------------clientes ------------------------------
-
 
 export const fetchClients = async (q, page) => {
   const regex = new RegExp(q, "i");
@@ -105,14 +97,38 @@ export const fetchClients = async (q, page) => {
   }
 };
 
-
-export const fetchClient= async (id) => {
+export const fetchClient = async (id) => {
   try {
     connectToDB();
-    const client = await Client.findById(id)
+    const client = await Client.findById(id);
     return client;
   } catch (err) {
-
     throw new Error("Failed to fetch cliente haaaaaa!");
+  }
+};
+
+//----------------------contratos ------------------------------
+
+export const fetchContracts = async (q, page) => {
+  const regex = new RegExp(q, "i");
+  const ITEM_PER_PAGE = 8;
+  try {
+    connectToDB();
+    const count = await Contract.find({ titulo: { $regex: regex } }).count();
+    const contracts = await Contract.find({ titulo: { $regex: regex } })
+      .limit(ITEM_PER_PAGE)
+      .skip(ITEM_PER_PAGE * (page - 1));
+    return { count, contracts };
+  } catch (err) {
+    throw new Error("Failed to fetch Contract!");
+  }
+};
+export const fetchContract = async (id) => {
+  try {
+    connectToDB();
+    const contract = await Contract.findById(id);
+    return contract;
+  } catch (err) {
+    throw new Error("Failed to fetch contrato haaaaaa!");
   }
 };

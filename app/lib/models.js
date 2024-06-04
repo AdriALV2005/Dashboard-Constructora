@@ -81,7 +81,6 @@ const clientSchema = new mongoose.Schema(
     nombre: {
       type: String,
       minlength: 3,
-
       maxlength: 20,
     },
     apellido: {
@@ -143,7 +142,36 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+const contractSchema = new mongoose.Schema(
+  {
+    titulo: {
+      type: String,
+      required: true,
+     
+    },
+    fechainicio: {
+      type: Date,
+      required: true,
+    },
+    fechafin: {
+      type: Date,
+      required: true,
+    },
+    estado: {
+      type: String,
+    },
+    tipo: {
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
+
+
+
 export const User = mongoose.models.User || mongoose.model("User", userSchema);
 export const Product = mongoose.models.Product || mongoose.model("Product", productSchema);
 export const Employee = mongoose.models.Employee || mongoose.model("Employee", employeeSchema);
 export const Client = mongoose.models.Client || mongoose.model("Client", clientSchema);
+export const Contract = mongoose.models.Contract || mongoose.model("Contract", contractSchema);
