@@ -28,7 +28,7 @@ export const addUser = async (formData) => {
     });
     await newUser.save();
   } catch (err) {
-    console.log(err);
+ 
     throw new Error("failed to creat new user");
   }
 
@@ -60,7 +60,7 @@ export const updateUser = async (formData) => {
 
     await User.findByIdAndUpdate(id, updateFields);
   } catch (err) {
-    console.log(err);
+
     throw new Error("Failed to update user!");
   }
 
@@ -91,7 +91,7 @@ export const updateProduct = async (formData) => {
 
     await Product.findByIdAndUpdate(id, updateFields);
   } catch (err) {
-    console.log(err);
+   
     throw new Error("Failed to update product!");
   }
 
@@ -116,7 +116,7 @@ export const addProduct = async (formData) => {
     });
     await newProduct.save();
   } catch (err) {
-    console.log(err);
+
     throw new Error("failed to creat new product");
   }
 
@@ -132,7 +132,7 @@ export const deleteProduct = async (formData) => {
 
     await Product.findByIdAndDelete(id);
   } catch (err) {
-    console.log(err);
+
     throw new Error("failed to delete new product");
   }
 
@@ -147,7 +147,7 @@ export const deleteUser = async (formData) => {
 
     await User.findByIdAndDelete(id);
   } catch (err) {
-    console.log(err);
+
     throw new Error("failed to delete new user");
   }
 
