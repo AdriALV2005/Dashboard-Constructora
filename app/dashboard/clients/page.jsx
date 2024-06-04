@@ -2,15 +2,17 @@ import React from "react";
 import styles from "@/app/ui/dashboard/users/users.module.css";
 import Search from "@/app/ui/dashboard/search/search";
 import Link from "next/link";
-import Image from "next/image";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
 import { fetchClients } from "@/app/lib/data";
 import { deleteClient } from "@/app/lib/actions";
+import { FaRegEdit  } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 const ClientsPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const { count, clients } = await fetchClients(q, page);
+
 
   return (
 
@@ -44,13 +46,13 @@ const ClientsPage = async ({ searchParams }) => {
                 <div className={styles.buttons}>
                   <Link href={`/dashboard/clients/${client.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
-                      View
+                    <FaRegEdit size={20}/>
                     </button>
                   </Link>
                   <form action={deleteClient}>
                     <input type="hidden" name="id" value={client.id} />
                   <button className={`${styles.button} ${styles.delete}`}>
-                    Delete
+                  <MdDelete size={23} />
                   </button>
                   </form>
                  

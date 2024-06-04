@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "@/app/ui/dashboard/products/products.module.css";
-import Image from "next/image";
+import { FaRegEdit  } from "react-icons/fa";
 import Search from "@/app/ui/dashboard/search/search";
 import Link from "next/link";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
 import { fetchContracts } from "@/app/lib/data";
 import { deleteContract } from "@/app/lib/actions";
+import { MdDelete } from "react-icons/md";
 
 const ContractsPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -44,13 +45,15 @@ const ContractsPage = async ({ searchParams }) => {
                 <div className={styles.buttons}>
                   <Link href={`/dashboard/contracts/${contract.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
-                      Editar
+                    <FaRegEdit size={20}/>
+
                     </button>
                   </Link>
                   <form action={deleteContract}>
                     <input type="hidden" name="id" value={contract.id} />
                     <button className={`${styles.button} ${styles.delete}`}>
-                      Eliminar
+                    <MdDelete size={23} />
+
                     </button>
                   </form>
                 </div>

@@ -2,7 +2,7 @@
   background-color: var(--bgSoft);
   padding: 20px;
   border-radius: 20px;
-  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
 }
 
@@ -57,16 +57,18 @@
 
 .view {
   background-color: #65cbe9;
-  padding: 7px 23px;
+  padding: 10px 15px;
+
+  border-radius: 20vh;
   color: #f2f2fc;
-  border-radius: 10vh;
 }
 
 .delete {
   background-color: #f55c7a;
-  padding: 7px 23px;
+  padding: 10px 15px;
+
+  border-radius: 20vh;
   color: #f2f2fc;
-  border-radius: 10vh;
 }
 
 .table thead td {
@@ -76,7 +78,6 @@
 /* products.module.css */
 .container thead td:last-child {
   padding-left: 5rem;
-
 }
 
 /* Otros estilos existentes */
