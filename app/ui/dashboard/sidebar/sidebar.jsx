@@ -5,12 +5,9 @@ import {
   MdDashboard,
   MdSupervisedUserCircle,
   MdShoppingBag,
-  MdAttachMoney,
   MdWork,
   MdAnalytics,
   MdPeople,
-  MdOutlineSettings,
-  MdHelpCenter,
   MdLogout,
 } from "react-icons/md";
 import MenuLink from "./menuLink/menuLink";
@@ -38,44 +35,18 @@ const menuItems = [
       {
         title: "Trabajadores",
         path: "/dashboard/employees",
-        icon: <MdPeople />,
+        icon: <MdAnalytics />,
       },
       {
         title: "Clientes",
         path: "/dashboard/clients",
         icon: <MdPeople />,
       },
-      
-    ],
-  },
-  {
-    list: [
-     
       {
-        title: "Transactions",
+        title: "Contratos",
         path: "/dashboard/transactions",
-        icon: <MdAttachMoney />,
+        icon: <MdWork />,
       },
-    ],
-  },
-  {
-    list: [
-      {
-        title: "Settings",
-        path: "/dashboard/settings",
-        icon: <MdOutlineSettings />,
-      },
-      {
-        title: "Help",
-        path: "/dashboard/help",
-        icon: <MdHelpCenter />,
-      },
-      {
-        title: "Help",
-        path: "/dashboard/help",
-        icon: <MdHelpCenter />,
-      },
-      
     ],
   },
 ];
