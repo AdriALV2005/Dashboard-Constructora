@@ -6,8 +6,8 @@ const Transactions = () => {
     <div className={styles.container}>
       <h2 className={styles.title}>Latest Transactions</h2>
       <table className={styles.table}>
-        <thead>
-          <tr>
+        <thead className={styles.tr}>
+          <tr >
             <td>Name</td>
             <td>Status</td>
             <td>Date</td>
@@ -86,7 +86,7 @@ const Transactions = () => {
                   height={40}
                   className={styles.userImage}
                 />
-                adribell reyna 
+                adribell reyna
               </div>
             </td>
             <td>

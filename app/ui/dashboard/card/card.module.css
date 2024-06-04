@@ -1,21 +1,30 @@
 .container {
     background-color: var(--bgSoft);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     display: flex;
     gap: 20px;
+    box-shadow: 0 4px 13px rgba(0, 0, 0, 0.1); 
     cursor: pointer;
     width: 100%;
-}
-
-.container:hover {
-    background-color: #2e374a;
 }
 
 .texts {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+.icons{
+    color: #6f6af8;
+    display: flex;
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    margin-right: 10px; /* Opcional: ajusta el margen entre el icono y el texto */
+}
+
+.title{
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .number {

@@ -33,7 +33,7 @@
 .form button{
   width: 100%;
   padding: 30px;
-  background-color: teal;
+  background-color: red;
   color: var(--text);
   border: none;
   border-radius: 5px;

@@ -13,11 +13,12 @@ const UsersPage = async ({ searchParams }) => {
   const { count, users } = await fetchUsers(q, page);
 
   return (
+
     <div className={styles.container}>
       <div className={styles.top}>
         <Search placeholder="Search for a user" />
         <Link href="/dashboard/users/add">
-          <button className={styles.addButton}>Add New</button>
+          <button className={styles.addButton}>+</button>
         </Link>
       </div>
       <table className={styles.table}>

@@ -6,8 +6,10 @@ import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
 
 import bcrypt from "bcrypt";
-import {signIn} from "@/app/auth";
+import { signIn } from "@/app/auth";
 
+
+//sirve para buscar usuarios en la base de datos por su nombre 
 export const addUser = async (formData) => {
   const { username, email, password, phone, address, isAdmin, isActive } =
     Object.fromEntries(formData);
@@ -28,7 +30,6 @@ export const addUser = async (formData) => {
     });
     await newUser.save();
   } catch (err) {
-    console.log(err);
     throw new Error("failed to creat new user");
   }
 
@@ -60,7 +61,6 @@ export const updateUser = async (formData) => {
 
     await User.findByIdAndUpdate(id, updateFields);
   } catch (err) {
-    console.log(err);
     throw new Error("Failed to update user!");
   }
 
@@ -91,7 +91,6 @@ export const updateProduct = async (formData) => {
 
     await Product.findByIdAndUpdate(id, updateFields);
   } catch (err) {
-    console.log(err);
     throw new Error("Failed to update product!");
   }
 
@@ -116,7 +115,6 @@ export const addProduct = async (formData) => {
     });
     await newProduct.save();
   } catch (err) {
-    console.log(err);
     throw new Error("failed to creat new product");
   }
 
@@ -132,7 +130,6 @@ export const deleteProduct = async (formData) => {
 
     await Product.findByIdAndDelete(id);
   } catch (err) {
-    console.log(err);
     throw new Error("failed to delete new product");
   }
 
@@ -147,19 +144,31 @@ export const deleteUser = async (formData) => {
 
     await User.findByIdAndDelete(id);
   } catch (err) {
-    console.log(err);
     throw new Error("failed to delete new user");
   }
 
   revalidatePath("/dashboard/users");
 };
 
-export const authenticate = async ( preveState,formData) => {//
+export const authenticate = async (preveState, formData) => {
+  //
   const { username, password } = Object.fromEntries(formData);
 
   try {
     await signIn("credentials", { username, password });
   } catch (err) {
-   return "credenciles incorrectas";
+    return (
+      <div
+        style={{
+          textAlign:'center',
+          color: "#6f6af8",
+          padding: "10px",
+          borderRadius: "5px",
+          fontSize:'13px'
+        }}
+      >
+        ¡Credenciales incorrectas!
+      </div>
+    );
   }
 };
