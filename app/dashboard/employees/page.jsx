@@ -28,6 +28,7 @@ const EmployeesPage = async ({ searchParams }) => {
             <td>Nombre</td>
             <td>Apellido</td>
             <td>Telefono</td>
+            <td>Cargo</td>
             <td>Action</td>
           </tr>
         </thead>
@@ -38,13 +39,14 @@ const EmployeesPage = async ({ searchParams }) => {
               <td>{employee.nombre}</td>
               <td>{employee.apellido}</td>
               <td>{employee.telefono}</td>
+              <td>{employee.cargo}</td>
               <td>
                 <div className={styles.buttons}>
-                  {/* <Link href={`/dashboard/users/${user.id}`}>
+                  <Link href={`/dashboard/employees/${employee.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
                       View
                     </button>
-                  </Link> */}
+                  </Link>
                   <form action={deleteEmployee}>
                     <input type="hidden" name="id" value={employee.id} />
                   <button className={`${styles.button} ${styles.delete}`}>

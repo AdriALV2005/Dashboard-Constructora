@@ -212,3 +212,27 @@ export const addEmployee = async (formData) => {
   redirect("/dashboard/employees");
 };
 
+export const updateEmployee= async (formData) => {
+  const { id, nombre,apellido,telefono,correo,direccion,edad, cargo} =
+    Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    const updateFields = {
+      nombre,apellido,telefono,correo,direccion,edad, cargo
+    };
+
+    Object.keys(updateFields).forEach(
+      (key) =>
+        (updateFields[key] === "" || undefined) && delete updateFields[key]
+    );
+
+    await Employee.findByIdAndUpdate(id, updateFields);
+  } catch (err) {
+    throw new Error("Failed to editar employee!");
+  }
+
+  revalidatePath("/dashboard/employees");
+  redirect("/dashboard/employees");
+};

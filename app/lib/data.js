@@ -75,3 +75,13 @@ export const fetchEmployees = async (q, page) => {
     throw new Error("error trabajadores ...!");
   }
 };
+export const fetchEmployee= async (id) => {
+  try {
+    connectToDB();
+    const employee = await Employee.findById(id)
+    return employee;
+  } catch (err) {
+
+    throw new Error("Failed to fetch employee!");
+  }
+};
