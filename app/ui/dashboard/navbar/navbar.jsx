@@ -20,11 +20,9 @@ const Navbar = () => {
     }
 
     title = `${greeting}, admin`;
-  }
-  else if (pathname === "/dashboard/users") {
+  } else if (pathname === "/dashboard/users") {
     title = "BRYAN PUTA";
-  }
-  else if (pathname === "/dashboard/products") {
+  } else if (pathname === "/dashboard/products") {
     title = "BRYAN BONITO";
   }
 

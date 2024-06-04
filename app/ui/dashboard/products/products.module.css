@@ -70,9 +70,16 @@
 
 .table thead td {
   position: relative;
-  color: #A3AED0;
-  
+  color: #a3aed0;
 }
+/* products.module.css */
+.container thead td:last-child {
+  padding-left: 5rem;
+
+}
+
+/* Otros estilos existentes */
+
 .table thead td::after {
   content: "";
   position: absolute;
