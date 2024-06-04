@@ -40,21 +40,17 @@ const menuItems = [
         path: "/dashboard/employees",
         icon: <MdPeople />,
       },
+      {
+        title: "Clientes",
+        path: "/dashboard/clients",
+        icon: <MdPeople />,
+      },
       
     ],
   },
   {
     list: [
-      {
-        title: "Revenue",
-        path: "/dashboard/revenue",
-        icon: <MdWork />,
-      },
-      {
-        title: "Reports",
-        path: "/dashboard/reports",
-        icon: <MdAnalytics />,
-      },
+     
       {
         title: "Transactions",
         path: "/dashboard/transactions",

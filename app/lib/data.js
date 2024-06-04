@@ -1,4 +1,4 @@
-import { Product, User, Employee} from "./models";
+import { Product, User, Employee, Client} from "./models";
 import { connectToDB } from "./utils";
 
 export const fetchUsers = async (q, page) => {
@@ -83,5 +83,36 @@ export const fetchEmployee= async (id) => {
   } catch (err) {
 
     throw new Error("Failed to fetch employee!");
+  }
+};
+
+//----------------------clientes ------------------------------
+
+
+export const fetchClients = async (q, page) => {
+  const regex = new RegExp(q, "i");
+  const ITEM_PER_PAGE = 8;
+  try {
+    connectToDB();
+    const count = await Client.find({ nombre: { $regex: regex } }).count();
+    const clients = await Client.find({ nombre: { $regex: regex } })
+      .limit(ITEM_PER_PAGE)
+      .skip(ITEM_PER_PAGE * (page - 1));
+    return { count, clients };
+  } catch (err) {
+    console.log(err);
+    throw new Error("error clientes ...!");
+  }
+};
+
+
+export const fetchClient= async (id) => {
+  try {
+    connectToDB();
+    const client = await Client.findById(id)
+    return client;
+  } catch (err) {
+
+    throw new Error("Failed to fetch cliente haaaaaa!");
   }
 };

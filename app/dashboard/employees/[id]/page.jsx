@@ -19,10 +19,8 @@ const SingleEmployeePage = async ({ params }) => {
           <input type="text" name="apellido" placeholder={employee.apellido} />
           <label>Telefono</label>
           <input type="number" name="telefono" placeholder={employee.telefono} />
-         
           <label>correo</label>
           <input type="email" name="correo" placeholder={employee.correo} />
-         
           <label>direccion</label>
           <input type="text" name="direccion" placeholder={employee.direccion} />
           <label>edad</label>
