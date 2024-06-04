@@ -12,6 +12,7 @@
     "@formkit/auto-animate": "^0.8.2",
     "@next/eslint-plugin-next": "14.0.1",
     "bcrypt": "^5.1.1",
+    "chart.js": "2.9.3",
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.1",
     "next": "14.0.1",
