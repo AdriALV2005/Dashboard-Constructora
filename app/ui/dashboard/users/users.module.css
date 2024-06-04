@@ -53,20 +53,27 @@
   cursor: pointer;
 }
 
+.ver, .view, .delete {
+  width: 50px;  /* tamaño uniforme para los botones */
+  height: 50px; /* tamaño uniforme para los botones */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* hace los botones redondos */
+  color: #f2f2fc;
+  border: none;
+  cursor: pointer;
+}
+.ver {
+  background-color: #b0f2c2;
+}
+
 .view {
   background-color: #65cbe9;
-  color: #f2f2fc;
-  padding: 10px 15px;
- 
-  border-radius: 15vh;
 }
 
 .delete {
   background-color: #f55c7a;
-  padding: 10px 15px;
- 
-  border-radius: 15vh;
-  color: #f2f2fc;
 }
 
 .table thead td {

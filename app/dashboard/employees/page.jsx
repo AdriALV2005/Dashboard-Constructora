@@ -2,11 +2,11 @@ import React from "react";
 import styles from "@/app/ui/dashboard/users/users.module.css";
 import Search from "@/app/ui/dashboard/search/search";
 import Link from "next/link";
-import { FaRegEdit } from "react-icons/fa";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
 import { fetchEmployees } from "@/app/lib/data";
 import { deleteEmployee  } from "@/app/lib/actions";
-import { MdDelete } from "react-icons/md";
+import { FaEye } from "react-icons/fa";
+import { MdDelete, MdEdit } from "react-icons/md";
 
 const EmployeesPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -43,9 +43,12 @@ const EmployeesPage = async ({ searchParams }) => {
               <td>{employee.cargo}</td>
               <td>
                 <div className={styles.buttons}>
+                <button className={`${styles.button} ${styles.ver}`}>
+                    <FaEye size={23} />
+                  </button>
                   <Link href={`/dashboard/employees/${employee.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
-                    <FaRegEdit size={20}/>
+                    <MdEdit size={23}/>
                     </button>
                   </Link>
                   <form action={deleteEmployee}>

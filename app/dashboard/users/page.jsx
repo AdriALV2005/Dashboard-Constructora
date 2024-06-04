@@ -6,8 +6,8 @@ import Image from "next/image";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
 import { fetchUsers } from "@/app/lib/data";
 import { deleteUser } from "@/app/lib/actions";
-import { FaRegEdit } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
+import { FaEye } from "react-icons/fa";
+import { MdDelete, MdEdit } from "react-icons/md";
 
 const UsersPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -54,9 +54,12 @@ const UsersPage = async ({ searchParams }) => {
               <td>{user.isAdmin ? "active" : "passive"}</td>
               <td>
                 <div className={styles.buttons}>
+                <button className={`${styles.button} ${styles.ver}`}>
+                    <FaEye size={23} />
+                  </button>
                   <Link href={`/dashboard/users/${user.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
-                      <FaRegEdit size={20} />
+                      <MdEdit size={20} />
                     </button>
                   </Link>
                   <form action={deleteUser}>
