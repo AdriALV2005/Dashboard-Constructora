@@ -1,10 +1,9 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { Product, User } from "./models";
+import { Product, User, Employee } from "./models";
 import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
-
 import bcrypt from "bcrypt";
 import { signIn } from "@/app/auth";
 
@@ -160,11 +159,11 @@ export const authenticate = async (preveState, formData) => {
     return (
       <div
         style={{
-          textAlign:'center',
+          textAlign: 'center',
           color: "#6f6af8",
           padding: "10px",
           borderRadius: "5px",
-          fontSize:'13px'
+          fontSize: '13px'
         }}
       >
         ¡Credenciales incorrectas!
@@ -172,3 +171,44 @@ export const authenticate = async (preveState, formData) => {
     );
   }
 };
+
+//----------------------trabajadores ------------------------------
+
+
+export const deleteEmployee = async (formData) => {
+  const { id } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    await Employee.findByIdAndDelete(id);
+  } catch (err) {
+    throw new Error("failed to delete new employee");
+  }
+
+  revalidatePath("/dashboard/employees");
+};
+
+
+
+export const addEmployee = async (formData) => {
+  const { nombre,apellido,telefono,correo,direccion,edad, cargo } =
+    Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    const newEmployee = new Employee({
+      nombre,apellido,telefono,correo,direccion,edad, cargo 
+    });
+    console.log(newEmployee)
+    await newEmployee.save();
+  } catch (err) {
+    console.log(err)
+    throw new Error("failed to creat new lupe");
+  }
+
+  revalidatePath("/dashboard/employees");//
+  redirect("/dashboard/employees");
+};
+

@@ -39,6 +39,43 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+
+const employeeSchema = new mongoose.Schema(
+  {
+    nombre: {
+      type: String,
+      minlength: 3,
+      unique:true,
+      maxlength: 20,
+    },
+    apellido: {
+      type: String,
+      minlength: 3,
+      maxlength: 20,
+    },
+    telefono: {
+      type: String,
+      minlength: 3,
+      maxlength: 20,
+    },
+    correo: {
+      type: String,
+     
+    },
+    direccion: {
+      type: String,
+    },
+    edad: {
+      type: Number,
+      min: 0, // Se asume que la edad no puede ser negativa
+    },
+    cargo: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
+
 const productSchema = new mongoose.Schema(
   {
     title: {
@@ -74,5 +111,5 @@ const productSchema = new mongoose.Schema(
 );
 
 export const User = mongoose.models.User || mongoose.model("User", userSchema);
-export const Product =
-  mongoose.models.Product || mongoose.model("Product", productSchema);
+export const Product = mongoose.models.Product || mongoose.model("Product", productSchema);
+export const Employee = mongoose.models.Employee || mongoose.model("Employee", employeeSchema);
