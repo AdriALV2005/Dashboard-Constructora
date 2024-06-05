@@ -1,11 +1,13 @@
 import { addContract } from "@/app/lib/actions";
 import styles from "@/app/ui/dashboard/products/addProduct/addProduct.module.css";
-import { fetchEmployees } from "@/app/lib/data";
+import { fetchClients, fetchEmployees } from "@/app/lib/data";
+fetchClients;
 
 const AddContractPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const { employees } = await fetchEmployees(q, page);
+  const { clients } = await fetchClients(q, page);
   return (
     <div className={styles.container}>
       <form action={addContract} className={styles.form}>
@@ -54,6 +56,13 @@ const AddContractPage = async ({ searchParams }) => {
           {employees.map((employee) => (
             <option key={employee.nombre} value={employee.nombre}>
               {employee.nombre}
+            </option>
+          ))}
+        </select>
+         <select name="clienteNombre" id="clienteNombre">
+          {clients.map((client) => (
+            <option key={client.nombre} value={client.nombre}>
+              {client.nombre}
             </option>
           ))}
         </select>
