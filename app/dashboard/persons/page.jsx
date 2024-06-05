@@ -45,7 +45,7 @@ const PersonsPage = async ({ searchParams }) => {
                     <FaEye size={23} />
                   </button>
                 </Link>
-                  <Link href={`/dashboard/clients/${person.id}`}>
+                  <Link href={`/dashboard/persons/${person.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
                       <MdEdit size={23} />
                     </button>
