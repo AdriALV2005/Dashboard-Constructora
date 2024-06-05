@@ -1,4 +1,4 @@
-import { Product, User, Employee, Client , Contract, Project} from "./models";
+import { Product, User, Employee, Client , Contract, Project, Person} from "./models";
 import { connectToDB } from "./utils";
 
 export const fetchUsers = async (q, page) => {
@@ -102,6 +102,33 @@ export const fetchClient = async (id) => {
     connectToDB();
     const client = await Client.findById(id);
     return client;
+  } catch (err) {
+    throw new Error("Failed to fetch cliente haaaaaa!");
+  }
+};
+//----------------------personas ------------------------------
+
+export const fetchPersons = async (q, page) => {
+  const regex = new RegExp(q, "i");
+  const ITEM_PER_PAGE = 8;
+  try {
+    connectToDB();
+    const count = await Person.find({ nombre: { $regex: regex } }).count();
+    const persons = await Person.find({ nombre: { $regex: regex } })
+      .limit(ITEM_PER_PAGE)
+      .skip(ITEM_PER_PAGE * (page - 1));
+    return { count, persons };
+  } catch (err) {
+   
+    throw new Error("error personas ...!");
+  }
+};
+
+export const fetchPerson = async (id) => {
+  try {
+    connectToDB();
+    const person = await Person.findById(id);
+    return person;
   } catch (err) {
     throw new Error("Failed to fetch cliente haaaaaa!");
   }

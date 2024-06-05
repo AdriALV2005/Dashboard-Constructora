@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { Product, User, Employee, Client, Contract, Project } from "./models";
+import { Product, User, Employee, Client, Contract, Project, Person } from "./models";
 import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
@@ -245,7 +245,7 @@ export const updateEmployee = async (formData) => {
   redirect("/dashboard/employees");
 };
 
-//----------------------clinetes ------------------------------
+//----------------------clientes ------------------------------
 
 export const deleteClient = async (formData) => {
   const { id } = Object.fromEntries(formData);
@@ -316,6 +316,78 @@ export const updateClient = async (formData) => {
 
   revalidatePath("/dashboard/clients");
   redirect("/dashboard/clients");
+};
+//----------------------clientes ------------------------------
+
+export const deletePerson = async (formData) => {
+  const { id } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    await Person.findByIdAndDelete(id);
+  } catch (err) {
+   
+    throw new Error("failed to delete new persona");
+  }
+
+  revalidatePath("/dashboard/persons");
+};
+
+export const addPerson = async (formData) => {
+  const { nombre, apellido, telefono, correo, direccion, edad } =
+    Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    const newClient = new Person({
+      nombre,
+      apellido,
+      telefono,
+      correo,
+      direccion,
+      edad,
+    });
+  
+    await newClient.save();
+  } catch (err) {
+
+    throw new Error("failed to creat new cliente");
+  }
+
+  revalidatePath("/dashboard/persons"); //
+  redirect("/dashboard/persons");
+};
+
+export const updatePerson = async (formData) => {
+  const { id, nombre, apellido, telefono, correo, direccion, edad } =
+    Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    const updateFields = {
+      nombre,
+      apellido,
+      telefono,
+      correo,
+      direccion,
+      edad,
+    };
+
+    Object.keys(updateFields).forEach(
+      (key) =>
+        (updateFields[key] === "" || undefined) && delete updateFields[key]
+    );
+
+    await Person.findByIdAndUpdate(id, updateFields);
+  } catch (err) {
+    throw new Error("Failed to editar client!");
+  }
+
+  revalidatePath("/dashboard/persons");
+  redirect("/dashboard/persons");
 };
 
 //----------------------contratos ------------------------------

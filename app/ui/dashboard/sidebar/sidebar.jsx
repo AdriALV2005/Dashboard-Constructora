@@ -44,6 +44,11 @@ const menuItems = [
         icon: <MdPeople />,
       },
       {
+        title: "Personas",
+        path: "/dashboard/persons",
+        icon: <MdPeople />,
+      },
+      {
         title: "Contratos",
         path: "/dashboard/contracts",
         icon: <MdWork />,

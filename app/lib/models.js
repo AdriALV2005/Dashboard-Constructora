@@ -104,6 +104,37 @@ const clientSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+const personSchema = new mongoose.Schema(
+  {
+    nombre: {
+      type: String,
+      minlength: 3,
+      maxlength: 20,
+    },
+    apellido: {
+      type: String,
+      minlength: 3,
+      maxlength: 20,
+    },
+    telefono: {
+      type: String,
+      minlength: 3,
+      maxlength: 20,
+    },
+    correo: {
+      type: String,
+    },
+    direccion: {
+      type: String,
+    },
+    edad: {
+      type: Number,
+      min: 0,
+    },
+  },
+  { timestamps: true }
+);
+
 const productSchema = new mongoose.Schema(
   {
     title: {
@@ -198,3 +229,5 @@ export const Contract =
   mongoose.models.Contract || mongoose.model("Contract", contractSchema);
 export const Project =
   mongoose.models.Project || mongoose.model("Project", projectSchema);
+export const Person =
+  mongoose.models.Person || mongoose.model("Person", personSchema);
