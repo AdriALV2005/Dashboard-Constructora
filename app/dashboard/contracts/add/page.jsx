@@ -5,7 +5,7 @@ import { fetchEmployees } from "@/app/lib/data";
 const AddContractPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
-  const {  employees } = await fetchEmployees(q, page);
+  const { employees } = await fetchEmployees(q, page);
   return (
     <div className={styles.container}>
       <form action={addContract} className={styles.form}>
