@@ -336,7 +336,7 @@ export const deleteContract = async (formData) => {
 };
 
 export const addContract = async (formData) => {
-  const { titulo, fechainicio, fechafin, estado, tipo } =
+  const { titulo, fechainicio, fechafin, estado, tipo, empleadoNombre } =
     Object.fromEntries(formData);
 
   try {
@@ -348,6 +348,7 @@ export const addContract = async (formData) => {
       fechafin,
       estado,
       tipo,
+      empleadoNombre,
     });
 
     await newContract.save();

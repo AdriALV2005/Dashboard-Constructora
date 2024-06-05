@@ -158,6 +158,9 @@ const contractSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    empleadoNombre:{
+      type:String,
+    }
   },
   { timestamps: true }
 );

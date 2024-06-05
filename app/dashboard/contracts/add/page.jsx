@@ -1,7 +1,11 @@
 import { addContract } from "@/app/lib/actions";
 import styles from "@/app/ui/dashboard/products/addProduct/addProduct.module.css";
+import { fetchEmployees } from "@/app/lib/data";
 
-const AddContractPage = () => {
+const AddContractPage = async ({ searchParams }) => {
+  const q = searchParams?.q || "";
+  const page = searchParams?.page || 1;
+  const {  employees } = await fetchEmployees(q, page);
   return (
     <div className={styles.container}>
       <form action={addContract} className={styles.form}>
@@ -40,7 +44,13 @@ const AddContractPage = () => {
           <option value={true}>Largo plazo</option>
           <option value={false}>Corto plazo</option>
         </select>
-
+        <select name="empleadoNombre" id="empleadoNombre">
+          {employees.map((employee) => (
+            <option key={employee.nombre} value={employee.nombre}>
+              {employee.nombre}
+            </option>
+          ))}
+        </select>
         <button type="submit">Submit</button>
       </form>
     </div>
