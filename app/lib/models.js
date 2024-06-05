@@ -5,14 +5,13 @@ const userSchema = new mongoose.Schema(
     username: {
       type: String,
       required: true,
-     
+
       min: 3,
       max: 20,
     },
     email: {
       type: String,
       required: true,
-     
     },
     password: {
       type: String,
@@ -39,13 +38,12 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-
 const employeeSchema = new mongoose.Schema(
   {
     nombre: {
       type: String,
       minlength: 3,
-     
+
       maxlength: 20,
     },
     apellido: {
@@ -60,7 +58,6 @@ const employeeSchema = new mongoose.Schema(
     },
     correo: {
       type: String,
-
     },
     direccion: {
       type: String,
@@ -95,7 +92,6 @@ const clientSchema = new mongoose.Schema(
     },
     correo: {
       type: String,
-
     },
     direccion: {
       type: String,
@@ -105,7 +101,7 @@ const clientSchema = new mongoose.Schema(
       min: 0,
     },
   },
-  {timestamps: true }
+  { timestamps: true }
 );
 
 const productSchema = new mongoose.Schema(
@@ -113,7 +109,6 @@ const productSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-     
     },
     desc: {
       type: String,
@@ -146,8 +141,6 @@ const contractSchema = new mongoose.Schema(
   {
     titulo: {
       type: String,
-      required: true,
-     
     },
     fechainicio: {
       type: Date,
@@ -158,21 +151,24 @@ const contractSchema = new mongoose.Schema(
       required: true,
     },
     estado: {
-      type: String,
+      type: Boolean,
+
+      default: false,
     },
     tipo: {
-      type: String,
-      required: true,
+      type: Boolean,
+
+      default: false,
     },
   },
   { timestamps: true }
 );
+
 const projectSchema = new mongoose.Schema(
   {
     nombre: {
       type: String,
       required: true,
-     
     },
     fechainicio: {
       type: Date,
@@ -189,11 +185,14 @@ const projectSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-
-
 export const User = mongoose.models.User || mongoose.model("User", userSchema);
-export const Product = mongoose.models.Product || mongoose.model("Product", productSchema);
-export const Employee = mongoose.models.Employee || mongoose.model("Employee", employeeSchema);
-export const Client = mongoose.models.Client || mongoose.model("Client", clientSchema);
-export const Contract = mongoose.models.Contract || mongoose.model("Contract", contractSchema);
-export const Project = mongoose.models.Project || mongoose.model("Project", projectSchema);
+export const Product =
+  mongoose.models.Product || mongoose.model("Product", productSchema);
+export const Employee =
+  mongoose.models.Employee || mongoose.model("Employee", employeeSchema);
+export const Client =
+  mongoose.models.Client || mongoose.model("Client", clientSchema);
+export const Contract =
+  mongoose.models.Contract || mongoose.model("Contract", contractSchema);
+export const Project =
+  mongoose.models.Project || mongoose.model("Project", projectSchema);

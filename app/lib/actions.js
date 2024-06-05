@@ -352,7 +352,7 @@ export const addContract = async (formData) => {
 
     await newContract.save();
   } catch (err) {
- 
+    console.log(err)
     throw new Error("failed to creat new contract");
   }
 

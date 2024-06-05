@@ -110,7 +110,7 @@ export const fetchClient = async (id) => {
 //----------------------contratos ------------------------------
 
 export const fetchContracts = async (q, page) => {
-  const regex = new RegExp(q, "i");
+  const regex = new RegExp(q, "i");//
   const ITEM_PER_PAGE = 8;
   try {
     connectToDB();

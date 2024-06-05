@@ -29,9 +29,18 @@ const AddContractPage = () => {
           required
         />
 
-        <input type="text" placeholder="estado" id="estado" name="estado" />
+        <select name="estado" id="estado">
+          <option value={true}>Estado</option>
+          <option value={true}>Activo</option>
+          <option value={false}>Inactivo</option>
+        </select>
 
-        <input type="text" placeholder="tipo" id="tipo" name="tipo" required />
+        <select name="tipo" id="tipo">
+          <option value={true}>Tipo</option>
+          <option value={true}>Largo plazo</option>
+          <option value={false}>Corto plazo</option>
+        </select>
+
         <button type="submit">Submit</button>
       </form>
     </div>

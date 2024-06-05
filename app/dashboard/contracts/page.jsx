@@ -38,8 +38,8 @@ const ContractsPage = async ({ searchParams }) => {
               <td>{contract.titulo}</td>
               <td>{contract.fechainicio?.toString().slice(4, 16)}</td>
               <td>{contract.fechafin?.toString().slice(4, 16)}</td>
-              <td>{contract.estado}</td>
-              <td>{contract.tipo}</td>
+              <td>{contract.estado ? "Activo" : "Inactivo"}</td>
+              <td>{contract.tipo ? "Largo Plazo" : "Corto Plazo"}</td>
 
               <td>
                 <div className={styles.buttons}>
