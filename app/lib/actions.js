@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { Product, User, Employee, Client , Contract} from "./models";
+import { Product, User, Employee, Client, Contract, Project } from "./models";
 import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
@@ -361,7 +361,7 @@ export const addContract = async (formData) => {
 };
 
 export const updateContract = async (formData) => {
-  const { id,titulo, fechainicio, fechafin, estado, tipo } =
+  const { id, titulo, fechainicio, fechafin, estado, tipo } =
     Object.fromEntries(formData);
 
   try {
@@ -387,4 +387,74 @@ export const updateContract = async (formData) => {
 
   revalidatePath("/dashboard/contracts");
   redirect("/dashboard/contracts");
+};
+
+//----------------------proyectos ------------------------------
+
+export const deleteProject = async (formData) => {
+  const { id } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    await Project.findByIdAndDelete(id);
+  } catch (err) {
+    console.log(err);
+    throw new Error("failed to delete new Project");
+  }
+
+  revalidatePath("/dashboard/projects");
+};
+
+export const addProject= async (formData) => {
+  const { nombre, fechainicio, fechafin, estado } =
+    Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    const newProject = new Project({
+      nombre,
+      fechainicio,
+      fechafin,
+      estado,
+     
+    });
+    console.log(newProject);
+    await newProject.save();
+  } catch (err) {
+    console.log(err);
+    throw new Error("failed to creat new newProject");
+  }
+
+  revalidatePath("/dashboard/projects"); //
+  redirect("/dashboard/projects");
+};
+
+export const updateProject = async (formData) => {
+  const { id, nombre, fechainicio, fechafin, estado } =
+    Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    const updateFields = {
+      nombre,
+      fechainicio,
+      fechafin,
+      estado,
+    };
+
+    Object.keys(updateFields).forEach(
+      (key) =>
+        (updateFields[key] === "" || undefined) && delete updateFields[key]
+    );
+
+    await Project.findByIdAndUpdate(id, updateFields);
+  } catch (err) {
+    throw new Error("Failed to editar projects!");
+  }
+
+  revalidatePath("/dashboard/projects");
+  redirect("/dashboard/projects");
 };

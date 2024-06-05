@@ -10,6 +10,7 @@ import {
   MdPeople,
   MdLogout,
 } from "react-icons/md";
+import { FaProjectDiagram  } from "react-icons/fa";
 import MenuLink from "./menuLink/menuLink";
 import { auth } from "@/app/auth";
 import { signOut } from "../../../auth";
@@ -46,6 +47,11 @@ const menuItems = [
         title: "Contratos",
         path: "/dashboard/contracts",
         icon: <MdWork />,
+      },
+      {
+        title: "Proyectos",
+        path: "/dashboard/projects",
+        icon: <FaProjectDiagram  />,
       },
     ],
   },

@@ -167,6 +167,27 @@ const contractSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+const projectSchema = new mongoose.Schema(
+  {
+    nombre: {
+      type: String,
+      required: true,
+     
+    },
+    fechainicio: {
+      type: Date,
+      required: true,
+    },
+    fechafin: {
+      type: Date,
+      required: true,
+    },
+    estado: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
 
 
 
@@ -175,3 +196,4 @@ export const Product = mongoose.models.Product || mongoose.model("Product", prod
 export const Employee = mongoose.models.Employee || mongoose.model("Employee", employeeSchema);
 export const Client = mongoose.models.Client || mongoose.model("Client", clientSchema);
 export const Contract = mongoose.models.Contract || mongoose.model("Contract", contractSchema);
+export const Project = mongoose.models.Project || mongoose.model("Project", projectSchema);

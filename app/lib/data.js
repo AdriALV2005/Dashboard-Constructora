@@ -1,4 +1,4 @@
-import { Product, User, Employee, Client , Contract} from "./models";
+import { Product, User, Employee, Client , Contract, Project} from "./models";
 import { connectToDB } from "./utils";
 
 export const fetchUsers = async (q, page) => {
@@ -130,5 +130,31 @@ export const fetchContract = async (id) => {
     return contract;
   } catch (err) {
     throw new Error("Failed to fetch contrato haaaaaa!");
+  }
+};
+
+//----------------------proyectos ------------------------------
+
+export const fetchProjects = async (q, page) => {
+  const regex = new RegExp(q, "i");
+  const ITEM_PER_PAGE = 8;
+  try {
+    connectToDB();
+    const count = await Project.find({ nombre: { $regex: regex } }).count();
+    const projects = await Project.find({ nombre: { $regex: regex } })
+      .limit(ITEM_PER_PAGE)
+      .skip(ITEM_PER_PAGE * (page - 1));
+    return { count, projects };
+  } catch (err) {
+    throw new Error("Failed to fetch Contract!");
+  }
+};
+export const fetchProject = async (id) => {
+  try {
+    connectToDB();
+    const project = await Project.findById(id);
+    return project;
+  } catch (err) {
+    throw new Error("Failed to fetch project haaaaaa!");
   }
 };
