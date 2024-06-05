@@ -41,7 +41,7 @@ const ContractsPage = async ({ searchParams }) => {
               <td>{contract.fechafin?.toString().slice(4, 16)}</td>
               <td>{contract.estado ? "Activo" : "Inactivo"}</td>
               <td>{contract.tipo ? "Largo Plazo" : "Corto Plazo"}</td>
-<td>{contract.empleadoNombre}</td>
+              <td>{contract.empleadoNombre}</td>
               <td>
                 <div className={styles.buttons}>
                   <Link href={`/dashboard/contracts/view/${contract.id}`}>

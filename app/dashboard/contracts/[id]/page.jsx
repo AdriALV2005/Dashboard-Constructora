@@ -1,12 +1,14 @@
-import { fetchContract } from "@/app/lib/data";
+import { fetchContract, fetchEmployees } from "@/app/lib/data";
 import styles from "@/app/ui/dashboard/products/singleProduct/singleProduct.module.css";
-import Image from "next/image";
+
 import { updateContract } from "@/app/lib/actions";
 
-const SingleContractPage = async ({ params }) => {
+const SingleContractPage = async ({ params,searchParams }) => {
   const { id } = params;
   const contract = await fetchContract(id);
-
+  const q = searchParams?.q || "";
+  const page = searchParams?.page || 1;
+  const { employees } = await fetchEmployees(q, page);
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
@@ -48,7 +50,13 @@ const SingleContractPage = async ({ params }) => {
             <option value={true}>Largo plazo</option>
             <option value={false}>Corto plazo</option>
           </select>
-
+          <select name="empleadoNombre" id="empleadoNombre">
+          {employees.map((employee) => (
+            <option key={employee.nombre} value={employee.nombre}>
+              {employee.nombre}
+            </option>
+          ))}
+        </select>
           <button>Update</button>
         </form>
       </div>

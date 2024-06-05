@@ -362,7 +362,7 @@ export const addContract = async (formData) => {
 };
 
 export const updateContract = async (formData) => {
-  const { id, titulo, fechainicio, fechafin, estado, tipo } =
+  const { id,titulo, fechainicio, fechafin, estado, tipo, empleadoNombre} =
     Object.fromEntries(formData);
 
   try {
@@ -374,6 +374,7 @@ export const updateContract = async (formData) => {
       fechafin,
       estado,
       tipo,
+      empleadoNombre,
     };
 
     Object.keys(updateFields).forEach(
