@@ -152,12 +152,10 @@ const contractSchema = new mongoose.Schema(
     },
     estado: {
       type: Boolean,
-
       default: false,
     },
     tipo: {
       type: Boolean,
-
       default: false,
     },
   },
@@ -180,6 +178,7 @@ const projectSchema = new mongoose.Schema(
     },
     estado: {
       type: String,
+      default:false,
     },
   },
   { timestamps: true }

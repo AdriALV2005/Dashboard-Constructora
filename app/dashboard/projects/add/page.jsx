@@ -29,9 +29,12 @@ const AddProjectPage = () => {
           required
         />
 
-        <input type="text" placeholder="estado" id="estado" name="estado" />
+        <select name="estado" id="estado">
+          <option value="Comenzando">Comenzando</option>
+          <option value="En proceso">En Proceso</option>
+          <option value="Terminado">Terminado</option>
+        </select>
 
-        
         <button type="submit">Submit</button>
       </form>
     </div>

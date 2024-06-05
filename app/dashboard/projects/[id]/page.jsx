@@ -36,12 +36,11 @@ const SingleProjectPage = async ({ params }) => {
             required
           />
 
-          <input
-            type="text"
-            placeholder={project.estado}
-            id="estado"
-            name="estado"
-          />
+<select name="estado" id="estado">
+          <option value="Comenzando">Comenzando</option>
+          <option value="En proceso">En Proceso</option>
+          <option value="Terminado">Terminado</option>
+        </select>
           <button>Update</button>
         </form>
       </div>
