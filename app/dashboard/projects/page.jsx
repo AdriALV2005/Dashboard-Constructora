@@ -41,9 +41,11 @@ const ProjectsPage = async ({ searchParams }) => {
 
               <td>
                 <div className={styles.buttons}>
+                <Link href={`/dashboard/projects/view/${project.id}`}>
                   <button className={`${styles.button} ${styles.ver}`}>
                     <FaEye size={23} />
                   </button>
+                  </Link>
                   <Link href={`/dashboard/projects/${project.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
                       <MdEdit size={23} />

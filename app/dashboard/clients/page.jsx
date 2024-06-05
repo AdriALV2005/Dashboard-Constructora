@@ -40,9 +40,11 @@ const ClientsPage = async ({ searchParams }) => {
               <td>{client.correo}</td>
               <td>
                 <div className={styles.buttons}>
+                <Link href={`/dashboard/clients/view/${client.id}`}>
                   <button className={`${styles.button} ${styles.ver}`}>
                     <FaEye size={23} />
                   </button>
+                </Link>
                   <Link href={`/dashboard/clients/${client.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
                       <MdEdit size={23} />
