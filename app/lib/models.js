@@ -194,7 +194,10 @@ const contractSchema = new mongoose.Schema(
     },
     clienteNombre:{
       type:String,
-    }
+    },
+    projectNombre:{
+      type:String,
+    },
   },
   { timestamps: true }
 );

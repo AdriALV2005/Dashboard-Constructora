@@ -1,4 +1,4 @@
-import { fetchContract, fetchEmployees, fetchClients } from "@/app/lib/data";
+import { fetchContract, fetchEmployees, fetchClients, fetchProjects } from "@/app/lib/data";
 import styles from "@/app/ui/dashboard/products/singleProduct/singleProduct.module.css";
 import { updateContract } from "@/app/lib/actions";
 
@@ -9,6 +9,7 @@ const SingleContractPage = async ({ params, searchParams }) => {
   const page = searchParams?.page || 1;
   const { employees } = await fetchEmployees(q, page);
   const { clients } = await fetchClients(q, page);
+  const { projects } = await fetchProjects(q, page);
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
@@ -62,6 +63,13 @@ const SingleContractPage = async ({ params, searchParams }) => {
             {clients.map((client) => (
               <option key={client.nombre} value={client.nombre}>
                 {client.nombre}
+              </option>
+            ))}
+          </select>
+          <select name="projectNombre" id="projectNombre">
+            {projects.map((project) => (
+              <option key={project.nombre} value={project.nombre}>
+                {project.nombre}
               </option>
             ))}
           </select>

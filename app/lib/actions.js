@@ -1,7 +1,15 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { Product, User, Employee, Client, Contract, Project, Person } from "./models";
+import {
+  Product,
+  User,
+  Employee,
+  Client,
+  Contract,
+  Project,
+  Person,
+} from "./models";
 import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
@@ -203,10 +211,9 @@ export const addEmployee = async (formData) => {
       edad,
       cargo,
     });
- 
+
     await newEmployee.save();
   } catch (err) {
-  
     throw new Error("failed to creat new lupe");
   }
 
@@ -255,7 +262,6 @@ export const deleteClient = async (formData) => {
 
     await Client.findByIdAndDelete(id);
   } catch (err) {
-   
     throw new Error("failed to delete new client");
   }
 
@@ -277,10 +283,9 @@ export const addClient = async (formData) => {
       direccion,
       edad,
     });
-  
+
     await newClient.save();
   } catch (err) {
-
     throw new Error("failed to creat new cliente");
   }
 
@@ -327,7 +332,6 @@ export const deletePerson = async (formData) => {
 
     await Person.findByIdAndDelete(id);
   } catch (err) {
-   
     throw new Error("failed to delete new persona");
   }
 
@@ -349,10 +353,9 @@ export const addPerson = async (formData) => {
       direccion,
       edad,
     });
-  
+
     await newClient.save();
   } catch (err) {
-
     throw new Error("failed to creat new cliente");
   }
 
@@ -400,7 +403,6 @@ export const deleteContract = async (formData) => {
 
     await Contract.findByIdAndDelete(id);
   } catch (err) {
-  
     throw new Error("failed to delete new contract");
   }
 
@@ -408,8 +410,16 @@ export const deleteContract = async (formData) => {
 };
 
 export const addContract = async (formData) => {
-  const { titulo, fechainicio, fechafin, estado, tipo, empleadoNombre ,clienteNombre} =
-    Object.fromEntries(formData);
+  const {
+    titulo,
+    fechainicio,
+    projectNombre,
+    fechafin,
+    estado,
+    tipo,
+    empleadoNombre,
+    clienteNombre,
+  } = Object.fromEntries(formData);
 
   try {
     connectToDB();
@@ -422,11 +432,12 @@ export const addContract = async (formData) => {
       tipo,
       empleadoNombre,
       clienteNombre,
+      projectNombre,
     });
 
     await newContract.save();
   } catch (err) {
-    console.log(err)
+    console.log(err);
     throw new Error("failed to creat new contract");
   }
 
@@ -435,8 +446,17 @@ export const addContract = async (formData) => {
 };
 
 export const updateContract = async (formData) => {
-  const { id,titulo, fechainicio, fechafin, estado, tipo, empleadoNombre,clienteNombre} =
-    Object.fromEntries(formData);
+  const {
+    id,
+    titulo,
+    fechainicio,
+    fechafin,
+    estado,
+    tipo,
+    empleadoNombre,
+    clienteNombre,
+    projectNombre,
+  } = Object.fromEntries(formData);
 
   try {
     connectToDB();
@@ -449,6 +469,7 @@ export const updateContract = async (formData) => {
       estado,
       tipo,
       empleadoNombre,
+      projectNombre,
       clienteNombre,
     };
 
@@ -476,14 +497,13 @@ export const deleteProject = async (formData) => {
 
     await Project.findByIdAndDelete(id);
   } catch (err) {
-   
     throw new Error("failed to delete new Project");
   }
 
   revalidatePath("/dashboard/projects");
 };
 
-export const addProject= async (formData) => {
+export const addProject = async (formData) => {
   const { nombre, fechainicio, fechafin, estado } =
     Object.fromEntries(formData);
 
@@ -495,12 +515,10 @@ export const addProject= async (formData) => {
       fechainicio,
       fechafin,
       estado,
-     
     });
-  
+
     await newProject.save();
   } catch (err) {
-  
     throw new Error("failed to creat new newProject");
   }
 
