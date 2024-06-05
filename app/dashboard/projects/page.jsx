@@ -12,7 +12,7 @@ const ProjectsPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const { count, projects } = await fetchProjects(q, page);
-  console.log(projects);
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>

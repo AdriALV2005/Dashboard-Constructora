@@ -203,10 +203,10 @@ export const addEmployee = async (formData) => {
       edad,
       cargo,
     });
-    console.log(newEmployee);
+ 
     await newEmployee.save();
   } catch (err) {
-    console.log(err);
+  
     throw new Error("failed to creat new lupe");
   }
 
@@ -255,7 +255,7 @@ export const deleteClient = async (formData) => {
 
     await Client.findByIdAndDelete(id);
   } catch (err) {
-    console.log(err);
+   
     throw new Error("failed to delete new client");
   }
 
@@ -277,10 +277,10 @@ export const addClient = async (formData) => {
       direccion,
       edad,
     });
-    console.log(newClient);
+  
     await newClient.save();
   } catch (err) {
-    console.log(err);
+
     throw new Error("failed to creat new cliente");
   }
 
@@ -328,7 +328,7 @@ export const deleteContract = async (formData) => {
 
     await Contract.findByIdAndDelete(id);
   } catch (err) {
-    console.log(err);
+  
     throw new Error("failed to delete new contract");
   }
 
@@ -349,10 +349,10 @@ export const addContract = async (formData) => {
       estado,
       tipo,
     });
-    console.log(newContract);
+
     await newContract.save();
   } catch (err) {
-    console.log(err);
+ 
     throw new Error("failed to creat new contract");
   }
 
@@ -399,7 +399,7 @@ export const deleteProject = async (formData) => {
 
     await Project.findByIdAndDelete(id);
   } catch (err) {
-    console.log(err);
+   
     throw new Error("failed to delete new Project");
   }
 
@@ -420,10 +420,10 @@ export const addProject= async (formData) => {
       estado,
      
     });
-    console.log(newProject);
+  
     await newProject.save();
   } catch (err) {
-    console.log(err);
+  
     throw new Error("failed to creat new newProject");
   }
 

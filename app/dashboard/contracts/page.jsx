@@ -12,7 +12,7 @@ const ContractsPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const { count, contracts } = await fetchContracts(q, page);
-  console.log(contracts);
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -43,9 +43,11 @@ const ContractsPage = async ({ searchParams }) => {
 
               <td>
                 <div className={styles.buttons}>
-                  <button className={`${styles.button} ${styles.ver}`}>
-                    <FaEye size={23} />
-                  </button>
+                  <Link href={`/dashboard/contracts/view/${contract.id}`}>
+                    <button className={`${styles.button} ${styles.ver}`}>
+                      <FaEye size={23} />
+                    </button>
+                  </Link>
                   <Link href={`/dashboard/contracts/${contract.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
                       <MdEdit size={23} />

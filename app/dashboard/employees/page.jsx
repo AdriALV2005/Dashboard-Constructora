@@ -43,9 +43,11 @@ const EmployeesPage = async ({ searchParams }) => {
               <td>{employee.cargo}</td>
               <td>
                 <div className={styles.buttons}>
+                <Link href={`/dashboard/employees/view/${employee.id}`}>
                 <button className={`${styles.button} ${styles.ver}`}>
                     <FaEye size={23} />
                   </button>
+                  </Link>
                   <Link href={`/dashboard/employees/${employee.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
                     <MdEdit size={23}/>

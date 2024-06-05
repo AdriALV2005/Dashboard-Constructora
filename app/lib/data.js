@@ -65,7 +65,7 @@ export const fetchEmployees = async (q, page) => {
       .skip(ITEM_PER_PAGE * (page - 1));
     return { count, employees };
   } catch (err) {
-    console.log(err);
+   
     throw new Error("error trabajadores ...!");
   }
 };
@@ -92,7 +92,7 @@ export const fetchClients = async (q, page) => {
       .skip(ITEM_PER_PAGE * (page - 1));
     return { count, clients };
   } catch (err) {
-    console.log(err);
+   
     throw new Error("error clientes ...!");
   }
 };
