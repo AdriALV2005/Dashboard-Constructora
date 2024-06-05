@@ -5,6 +5,7 @@ const AddProjectPage = () => {
   return (
     <div className={styles.container}>
       <form action={addProject} className={styles.form}>
+        <h3>hola</h3>
         <input
           type="text"
           placeholder="nombre"
@@ -12,7 +13,7 @@ const AddProjectPage = () => {
           name="nombre"
           required
         />
-
+ <h3>hola</h3>
         <input
           type="date"
           placeholder="fechainicio"
@@ -20,7 +21,7 @@ const AddProjectPage = () => {
           name="fechainicio"
           required
         />
-
+ <h3>hola</h3>
         <input
           type="date"
           placeholder="fechafin"
@@ -28,7 +29,7 @@ const AddProjectPage = () => {
           name="fechafin"
           required
         />
-
+ <h3>hola</h3>
         <select name="estado" id="estado">
           <option value="Comenzando">Comenzando</option>
           <option value="En proceso">En Proceso</option>

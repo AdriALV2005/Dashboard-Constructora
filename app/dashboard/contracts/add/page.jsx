@@ -9,6 +9,9 @@ const AddContractPage = async ({ searchParams }) => {
   return (
     <div className={styles.container}>
       <form action={addContract} className={styles.form}>
+      <div className={styles.formcompl}>
+          <div className={styles.column}>
+        <h3>hola</h3>
         <input
           type="text"
           placeholder="titulo"
@@ -16,7 +19,7 @@ const AddContractPage = async ({ searchParams }) => {
           name="titulo"
           required
         />
-
+        <h3>hola</h3>
         <input
           type="date"
           placeholder="fechainicio"
@@ -24,7 +27,7 @@ const AddContractPage = async ({ searchParams }) => {
           name="fechainicio"
           required
         />
-
+        <h3>hola</h3>
         <input
           type="date"
           placeholder="fechafin"
@@ -32,18 +35,21 @@ const AddContractPage = async ({ searchParams }) => {
           name="fechafin"
           required
         />
-
+         </div>
+          <div className={styles.column}>
+        <h3>hola</h3>
         <select name="estado" id="estado">
           <option value={true}>Estado</option>
           <option value={true}>Activo</option>
           <option value={false}>Inactivo</option>
         </select>
-
+        <h3>hola</h3>
         <select name="tipo" id="tipo">
           <option value={true}>Tipo</option>
           <option value={true}>Largo plazo</option>
           <option value={false}>Corto plazo</option>
         </select>
+        <h3>hola</h3>
         <select name="empleadoNombre" id="empleadoNombre">
           {employees.map((employee) => (
             <option key={employee.nombre} value={employee.nombre}>
@@ -51,6 +57,8 @@ const AddContractPage = async ({ searchParams }) => {
             </option>
           ))}
         </select>
+        </div>
+          </div>
         <button type="submit">Submit</button>
       </form>
     </div>
