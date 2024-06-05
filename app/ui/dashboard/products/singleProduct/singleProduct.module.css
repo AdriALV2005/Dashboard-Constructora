@@ -1,60 +1,76 @@
 .container {
+  max-width: 60%;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 2rem auto 20px; /* Cambié esto para que el margen superior sea 2rem y se aplique después */
+  background-color: white;
+  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.1);
+}
+
+.form {
   display: flex;
-  gap: 50px;
-  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.infoContainer {
-  flex: 1;
-  background-color: var(--bgSoft);
-  padding: 20px;
-  border-radius: 10px;
-  font-weight: bold;
-  color: var(--textSoft);
-  height: max-content;
-}
-
-.imgContainer{
-  width: 100%;
-  height: 300px;
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.formContainer {
-  flex: 3;
-  background-color: var(--bgSoft);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.form{
+.column {
   display: flex;
   flex-direction: column;
+  width: 45%;
 }
 
-.form input, .form textarea, .form select{
-  padding: 20px;
-  border: 2px solid #2e374a;
-  border-radius: 5px;
-  background-color: var(--bg);
-  color: var(--text);
-  margin: 10px 0px;
+.formcompl {
+  display: flex;
+  flex-direction: row;
+  gap: 3.7rem;
+  justify-content: center;
+  width: 100%; /* Añadí esto para asegurar que ocupe todo el ancho */
 }
 
-.form label{
-  font-size: 12px;
-}
-
-.form button{
+.form input,
+.form select,
+.form textarea {
   width: 100%;
-  padding: 20px;
-  background-color: teal;
-  color: var(--text);
+  padding: 10px;
+  margin-bottom: 30px;
+  border: 1px solid #a3aed0;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus {
+  outline: none;
+  border-color: #6f6af8;
+}
+
+.form input,
+.form select {
+  margin-right: 5%; /* Ajusté el margen derecho para separar los elementos */
+}
+
+.form textarea {
+  width: 100%;
+}
+
+.form button {
+  width: 30%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #6f6af8;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
+  font-weight: bold;
   cursor: pointer;
-  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.form button:hover {
+  background-color: #5555ff; /* Cambié el color de fondo del botón al hacer hover */
+}
+.form h3 {
+  font-size: 15px;
+  margin-bottom: 9px;
 }

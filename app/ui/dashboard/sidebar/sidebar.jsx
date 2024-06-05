@@ -28,11 +28,11 @@ const menuItems = [
         path: "/dashboard/users",
         icon: <MdSupervisedUserCircle />,
       },
-      // {
-      //   title: "Products",
-      //   path: "/dashboard/products",
-      //   icon: <MdShoppingBag />,
-      // },
+      {
+        title: "Products",
+        path: "/dashboard/products",
+        icon: <MdShoppingBag />,
+      },
       {
         title: "Trabajadores",
         path: "/dashboard/employees",
