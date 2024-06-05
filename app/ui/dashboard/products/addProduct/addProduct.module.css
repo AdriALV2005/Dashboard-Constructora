@@ -1,8 +1,12 @@
 .container {
-    background-color: var(--bgSoft);
+  max-width: 80%;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-top: 20px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    background-color: white;
+    box-shadow: 0 4px 13px rgba(0, 0, 0, 0.1);
   }
   
   .form {
@@ -11,17 +15,18 @@
     justify-content: space-between;
   }
   
-  .form input,
-  .form textarea,
-  .form select {
-    padding: 30px;
-    background-color: var(--bg);
-    color: var(--text);
-    border: 2px solid #2e374a;
-    border-radius: 5px;
+  .form input, .form select, .form textarea {
+    width: 100%;
+    padding: 10px;
     margin-bottom: 30px;
+    border: 1px solid #a3aed0;
+    border-radius: 10px;
+    box-sizing: border-box;
   }
-  
+  .form input:focus, .form textarea:focus, .form select:focus{
+    outline: none; /* Elimina el contorno predeterminado al enfocar */
+    border-color: #6f6af8; /* Cambia el color del borde a rojo al enfocarse */
+  }
   .form input, .form select {
     width: 45%;
   }
@@ -30,12 +35,20 @@
     width: 100%;
   }
   
-  .form button{
-    width: 100%;
-    padding: 30px;
-    background-color: teal;
-    color: var(--text);
+  .form button {
+    width: 30%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #6f6af8;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s;
   }
+  
+  .form button:hover {
+    background-color: #6f6af8;
+  }
+  
