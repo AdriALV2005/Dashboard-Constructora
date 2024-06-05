@@ -1,24 +1,28 @@
 import { addContract } from "@/app/lib/actions";
 import styles from "@/app/ui/dashboard/products/addProduct/addProduct.module.css";
 import { fetchEmployees } from "@/app/lib/data";
+import { fetchClients } from "@/app/lib/data";
+import { fetchProjects } from "@/app/lib/data";
 
 const AddContractPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const { employees } = await fetchEmployees(q, page);
+  const { clients } = await fetchClients(q, page);
+  const { projects } = await fetchProjects(q, page);
   return (
     <div className={styles.container}>
       <form action={addContract} className={styles.form}>
       <div className={styles.formcompl}>
           <div className={styles.column}>
         <h3>hola</h3>
-        <input
-          type="text"
-          placeholder="titulo"
-          id="titulo"
-          name="titulo"
-          required
-        />
+        <select name="projectoNombre" id="projectoNombre">
+          {projects.map((project) => (
+            <option key={project.estado} value={project.nombre}>
+              {project.nombre}
+            </option>
+          ))}
+        </select>
         <h3>hola</h3>
         <input
           type="date"
@@ -49,7 +53,7 @@ const AddContractPage = async ({ searchParams }) => {
           <option value={true}>Largo plazo</option>
           <option value={false}>Corto plazo</option>
         </select>
-        <h3>hola</h3>
+        <h3>trabajador encargado</h3>
         <select name="empleadoNombre" id="empleadoNombre">
           {employees.map((employee) => (
             <option key={employee.nombre} value={employee.nombre}>
@@ -57,6 +61,17 @@ const AddContractPage = async ({ searchParams }) => {
             </option>
           ))}
         </select>
+        <h3>agregar al cliente</h3>
+
+        <select name="clienteNombre" id="clienteNombre">
+          {clients.map((client) => (
+            <option key={client.nombre} value={client.nombre}>
+              {client.nombre}
+            </option>
+          ))}
+        </select>
+
+        
         </div>
           </div>
         <button type="submit">Submit</button>

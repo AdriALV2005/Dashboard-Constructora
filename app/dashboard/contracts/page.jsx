@@ -30,6 +30,8 @@ const ContractsPage = async ({ searchParams }) => {
             <td>Estado</td>
             <td>Tipo</td>
             <td>Empleado</td>
+            <td>Cliente</td>
+            <td>Projecto</td>
             <td>Action</td>
           </tr>
         </thead>
@@ -42,6 +44,8 @@ const ContractsPage = async ({ searchParams }) => {
               <td>{contract.estado ? "Activo" : "Inactivo"}</td>
               <td>{contract.tipo ? "Largo Plazo" : "Corto Plazo"}</td>
               <td>{contract.empleadoNombre}</td>
+              <td>{contract.clienteNombre}</td>
+              <td>{contract.projectoNombre}</td>
               <td>
                 <div className={styles.buttons}>
                   <Link href={`/dashboard/contracts/view/${contract.id}`}>

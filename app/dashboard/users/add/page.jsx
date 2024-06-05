@@ -1,9 +1,12 @@
 import { addUser } from "@/app/lib/actions";
 import styles from "@/app/ui/dashboard/users/addUser/addUser.module.css";
+import Rightbar from "@/app/ui/dashboard/rightbar/rightbar";
 
 const AddUserPage = () => {
   return (
+    
     <div className={styles.container}>
+     
       <form action={addUser} className={styles.form}>
         <div className={styles.formcompl}>
           <div className={styles.column}>

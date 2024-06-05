@@ -189,8 +189,14 @@ const contractSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    empleadoNombre:{
-      type:String,
+    empleadoNombre: {
+      type: String,
+    },
+    clienteNombre: {
+      type: String,
+    },
+    projectoNombre: {
+      type: String,
     }
   },
   { timestamps: true }
@@ -212,7 +218,7 @@ const projectSchema = new mongoose.Schema(
     },
     estado: {
       type: String,
-      default:false,
+      default: false,
     },
   },
   { timestamps: true }
