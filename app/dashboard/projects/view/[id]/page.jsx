@@ -1,5 +1,5 @@
 import { fetchProject } from "@/app/lib/data";
-import styles from "@/app/ui/dashboard/products/singleProduct/singleProduct.module.css";
+import styles from "@/app/ui/dashboard/products/viewProduct/viewProduct.module.css";
 
 const SingleProjectPage = async ({ params }) => {
   const { id } = params;

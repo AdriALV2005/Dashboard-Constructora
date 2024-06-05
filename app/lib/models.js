@@ -72,7 +72,7 @@ const employeeSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-//------clientes----------------
+
 const clientSchema = new mongoose.Schema(
   {
     nombre: {
@@ -189,14 +189,14 @@ const contractSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    empleadoNombre:{
-      type:String,
+    empleadoNombre: {
+      type: String,
     },
-    clienteNombre:{
-      type:String,
+    clienteNombre: {
+      type: String,
     },
-    projectNombre:{
-      type:String,
+    projectNombre: {
+      type: String,
     },
   },
   { timestamps: true }
@@ -218,7 +218,7 @@ const projectSchema = new mongoose.Schema(
     },
     estado: {
       type: String,
-      default:false,
+      default: false,
     },
   },
   { timestamps: true }

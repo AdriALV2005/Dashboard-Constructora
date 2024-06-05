@@ -1,5 +1,5 @@
 import { fetchClient } from "@/app/lib/data";
-import styles from "@/app/ui/dashboard/products/singleProduct/singleProduct.module.css";
+import styles from "@/app/ui/dashboard/products/viewProduct/viewProduct.module.css";
 
 const SingleClientPage = async ({ params }) => {
   const { id } = params;

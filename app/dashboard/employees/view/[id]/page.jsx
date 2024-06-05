@@ -1,5 +1,5 @@
 import { fetchEmployee } from "@/app/lib/data";
-import styles from "@/app/ui/dashboard/products/singleProduct/singleProduct.module.css";
+import styles from "@/app/ui/dashboard/products/viewProduct/viewProduct.module.css";
 
 
 
@@ -10,7 +10,8 @@ const SingleEmployeePage = async ({ params }) => {
   return (
     <div className={styles.container}>
       <div>
-        <h1>{employee.nombre} {employee.apellido}</h1>
+        <p>{employee.nombre}</p>
+        <p>{employee.apellido}</p>
         <p>Teléfono: {employee.telefono}</p>
         <p>Correo: {employee.correo}</p>
         <p>Dirección: {employee.direccion}</p>
