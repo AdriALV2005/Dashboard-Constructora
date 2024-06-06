@@ -21,7 +21,7 @@ const LoginForm = () => {
       </div>
       <div>
         <img
-          src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="https://i.ibb.co/kyM1gwT/00de44ff37d68a3ef16720f5f3ec60b0.jpg"
           alt=""
         />
       </div>

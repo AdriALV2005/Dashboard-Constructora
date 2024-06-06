@@ -108,7 +108,7 @@ export const authenticate = async (preveState, formData) => {
           fontSize: "13px",
         }}
       >
-        ¡Credenciales incorrectas!
+        Cargando, espere! 😺
       </div>
     );
   }

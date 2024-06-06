@@ -39,7 +39,7 @@ const data = [
 const Chart = () => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>cantidad de caches de  bryan - adribell</h2>
+      <h2 className={styles.title}>Gráfico</h2>
       <ResponsiveContainer width="100%" height="90%">
         <LineChart
           width={500}
