@@ -24,7 +24,7 @@ const Navbar = () => {
     title = "Administrador de usuarios";
 
   } else if (pathname.startsWith("/dashboard/users/")) {
-    title = "LUPITA USUARIO PRUEBA";
+    title = "Agregar usuario nuevo";
 
   } else if (pathname.startsWith("/dashboard/employees/")) {
     title = "LUPITA PRODUCTO PRUEBA";
