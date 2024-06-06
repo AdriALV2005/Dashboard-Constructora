@@ -40,7 +40,9 @@ const EmployeesPage = async ({ searchParams }) => {
               <td>{employee.nombre}</td>
               <td>{employee.apellido}</td>
               <td>{employee.telefono}</td>
-              <td>{employee.cargo}</td>
+              <td>
+                <span className={styles.cargo}> 
+                {employee.cargo}</span></td>
               <td>
                 <div className={styles.buttons}>
                 <Link href={`/dashboard/employees/view/${employee.id}`}>

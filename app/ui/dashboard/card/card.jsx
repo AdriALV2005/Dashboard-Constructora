@@ -39,7 +39,7 @@ const Card = async ({ searchParams }) => {
         <div className={styles.texts}>
           <span className={styles.title}>Clientes</span>
           <span className={styles.number}>{clientCount}</span>
-          <span className={styles.detail}>Más detalles ...</span>
+           <span className={styles.detail}>Más detalles ...</span>
         </div>
       </a>
       <a href="/dashboard/contracts/" className={styles.container}>

@@ -36,7 +36,11 @@
 }
 
 .detail {
+    border-radius: 5px;
+    padding: 5px 10px;
     font-size: 14px;
-    font-weight: 300;
+    color: white;
+    margin-top: 10px;
+    background-color: #6f6af8;
 }
 

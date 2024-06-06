@@ -50,7 +50,15 @@ const UsersPage = async ({ searchParams }) => {
               </td>
               <td>{user.email}</td>
               <td>{user.createdAt?.toString().slice(4, 16)}</td>
-              <td>{user.isAdmin ? "Admin" : "Client"}</td>
+              <td>
+              <span
+                className={
+                  user.isAdmin ? styles.isAdmin : styles.isClient
+                }
+              >
+                {user.isAdmin ? "Admin" : "Client"}
+              </span>
+              </td>
               <td>{user.isAdmin ? "active" : "passive"}</td>
               <td>
                 <div className={styles.buttons}>

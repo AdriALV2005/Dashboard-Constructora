@@ -37,7 +37,21 @@ const ProjectsPage = async ({ searchParams }) => {
               <td>{project.nombre}</td>
               <td>{project.fechainicio?.toString().slice(4, 16)}</td>
               <td>{project.fechafin?.toString().slice(4, 16)}</td>
-              <td>{project.estado}</td>
+              <td>
+        <span
+          className={`${
+            project.estado === "Terminado"
+              ? styles.terminado
+              : project.estado === "Comenzando"
+              ? styles.comenzando
+              : project.estado === "En proceso"
+              ? styles.enProceso
+              : ""
+          }`}
+        >
+          {project.estado}
+        </span>
+      </td>
 
               <td>
                 <div className={styles.buttons}>

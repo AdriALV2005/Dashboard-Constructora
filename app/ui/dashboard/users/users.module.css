@@ -77,7 +77,7 @@
   box-shadow: 0 4px 13px rgba(0, 0, 0, 0.3); /* Agrega una sombra */
 }
 .ver {
-  background-color: #b0f2c2;
+  background-color: #77dd77;
 }
 
 .view {
@@ -104,3 +104,28 @@
   height: 2px;
   background-color: #f4f7fe; /* Cambia el color de la línea según tus preferencias */
 }
+.cargo{
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #f2f2fc;
+  background-color: #ff8000;
+}/* products.module.css */
+
+.isAdmin {
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #f2f2fc;
+  background-color: #f55c7a;
+}
+
+.isClient {
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #f2f2fc;
+  background-color: #41a7f5;
+}
+
+/* Otros estilos existentes */

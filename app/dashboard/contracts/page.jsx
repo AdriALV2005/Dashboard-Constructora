@@ -37,11 +37,19 @@ const ContractsPage = async ({ searchParams }) => {
         </thead>
         <tbody>
           {contracts.map((contract) => (
-            <tr key={contract.id}>
+            <tr key={contract.id}  >
               <td>{contract.titulo}</td>
               <td>{contract.fechainicio?.toString().slice(4, 16)}</td>
               <td>{contract.fechafin?.toString().slice(4, 16)}</td>
-              <td>{contract.estado ? "Activo" : "Inactivo"}</td>
+              <td>
+               <span
+                className={
+                  contract.estado ? styles.estadoActivo : styles.estadoInactivo
+                }
+              >
+                {contract.estado ? "Activo" : "Inactivo"}
+              </span>
+              </td>
               <td>{contract.tipo ? "Largo Plazo" : "Corto Plazo"}</td>
               <td>{contract.empleadoNombre}</td>
               <td>{contract.clienteNombre}</td>
