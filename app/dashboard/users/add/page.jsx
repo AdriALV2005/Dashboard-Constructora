@@ -13,42 +13,43 @@ const AddUserPage = () => {
             <input type="text" placeholder="Ingrese su nombre de usuario ..." name="username" required />
             <h3>Correo electronico</h3>
             <input type="email" placeholder="Ingrese su correo electronico ..." name="email" required />
-            <h3></h3>
+            <h3>Contraseña</h3>
             <input
               type="password"
-              placeholder="password"
+              placeholder="Ingrese su contraseña ..."
               name="password"
               required
             />
           </div>
           <div className={styles.column}>
-            <h3>hola</h3>
-            <input type="phone" placeholder="phone" name="phone" />
-            <h3>hola</h3>
+            <h3>Teléfono</h3>
+            <input type="phone" placeholder="Ingrese su teléfono ..." name="phone" />
+            <h3>¿Es administrador?</h3>
             <select name="isAdmin" id="isAdmin" required>
               <option value={false} >
-                Is Admin?
+                Elija su opción
               </option>
-              <option value={true}>Yes</option>
+              <option value={true}>Sí</option>
               <option value={false}>No</option>
             </select>
-            <h3>hola</h3>
+            <h3>¿Es activo?</h3>
             <select name="isActive" id="isActive" required>
               <option value={true} >
-                Is Active?
+                Elija su opción
               </option>
-              <option value={true}>Yes</option>
+              <option value={true}>Sí</option>
               <option value={false}>No</option>
             </select>
           </div>
         </div>
+        <h3>Dirección</h3>
         <textarea
           name="address"
           id="address"
           rows="16"
-          placeholder="Address"
+          placeholder="Ingrese su dirección ..."
         ></textarea>
-        <button type="submit">Submit</button>
+        <button type="submit">CREAR</button>
       </form>
     </div>
 
