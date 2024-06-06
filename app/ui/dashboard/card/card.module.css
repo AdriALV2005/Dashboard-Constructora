@@ -7,8 +7,11 @@
     box-shadow: 0 4px 13px rgba(0, 0, 0, 0.1); 
     cursor: pointer;
     width: 100%;
+    transition: transform 0.3s ease-in-out; 
 }
-
+.container:hover {
+    transform: translateY(-10px); 
+  }
 .texts {
     display: flex;
     flex-direction: column;
@@ -37,10 +40,3 @@
     font-weight: 300;
 }
 
-.positive {
-    color: lime;
-}
-
-.negative {
-    color: red;
-}
