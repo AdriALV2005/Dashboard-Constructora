@@ -24,6 +24,10 @@ const SingleClientPage = async ({ params }) => {
             <span className={styles.label}>Dirección:</span>
             <span className={styles.value}>{client.direccion}</span>
           </div>
+          <div className={styles.detailItem}>
+            <span className={styles.label}>Edad:</span>
+            <span className={styles.value}>{client.edad}</span>
+          </div>
         </div>
       </div>
       <div className={styles.img}>
