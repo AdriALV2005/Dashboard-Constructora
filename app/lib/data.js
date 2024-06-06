@@ -1,4 +1,4 @@
-import { Product, User, Employee, Client , Contract, Project, Person} from "./models";
+import { Product, User, Employee, Client , Contract, Project} from "./models";
 import { connectToDB } from "./utils";
 
 export const fetchUsers = async (q, page) => {
@@ -27,30 +27,6 @@ export const fetchUser = async (id) => {
   }
 };
 
-export const fetchProducts = async (q, page) => {
-  const regex = new RegExp(q, "i");
-  const ITEM_PER_PAGE = 8;
-  try {
-    connectToDB();
-    const count = await Product.find({ title: { $regex: regex } }).count();
-    const products = await Product.find({ title: { $regex: regex } })
-      .limit(ITEM_PER_PAGE)
-      .skip(ITEM_PER_PAGE * (page - 1));
-    return { count, products };
-  } catch (err) {
-    throw new Error("Failed to fetch Product!");
-  }
-};
-
-export const fetchProduct = async (id) => {
-  try {
-    connectToDB();
-    const product = await Product.findById(id);
-    return product;
-  } catch (err) {
-    throw new Error("Failed to fetch product!");
-  }
-};
 
 //----------------------trabajadores ------------------------------
 
@@ -106,35 +82,7 @@ export const fetchClient = async (id) => {
     throw new Error("Failed to fetch cliente haaaaaa!");
   }
 };
-//----------------------personas ------------------------------
 
-export const fetchPersons = async (q, page) => {
-  const regex = new RegExp(q, "i");
-  const ITEM_PER_PAGE = 8;
-  try {
-    connectToDB();
-    const count = await Person.find({ nombre: { $regex: regex } }).count();
-    const persons = await Person.find({ nombre: { $regex: regex } })
-      .limit(ITEM_PER_PAGE)
-      .skip(ITEM_PER_PAGE * (page - 1));
-    return { count, persons };
-  } catch (err) {
-   
-    throw new Error("error personas ...!");
-  }
-};
-
-export const fetchPerson = async (id) => {
-  try {
-    connectToDB();
-    const person = await Person.findById(id);
-    return person;
-  } catch (err) {
-    throw new Error("Failed to fetch cliente haaaaaa!");
-  }
-};
-
-//----------------------contratos ------------------------------
 
 export const fetchContracts = async (q, page) => {
   const regex = new RegExp(q, "i");//

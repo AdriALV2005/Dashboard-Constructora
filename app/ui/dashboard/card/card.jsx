@@ -1,15 +1,14 @@
 import { MdSupervisedUserCircle } from "react-icons/md";
 import styles from "./card.module.css";
-import { fetchProducts } from "@/app/lib/data";
-import { fetchEmployees } from "@/app/lib/data";
-import { fetchClients } from "@/app/lib/data";
+import { fetchProjects, fetchEmployees, fetchClients, fetchContracts } from "@/app/lib/data";
 // Card component
 const Card = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
-  const { count: productCount } = await fetchProducts(q, page);
-  const {count: clientCount} = await fetchClients(q, page);
-  const { count: employeeCount } = await fetchEmployees();
+  const { count: projectCount } = await fetchProjects(q, page);
+  const { count: clientCount } = await fetchClients(q, page);
+  const { count: employeeCount } = await fetchEmployees(q, page);
+  const { count: contractCount } = await fetchContracts(q, page);
   return (
     <>
       {/* First Card */}
@@ -18,8 +17,8 @@ const Card = async ({ searchParams }) => {
           <MdSupervisedUserCircle size={50} />
         </div>{" "}
         <div className={styles.texts}>
-          <span className={styles.title}>Products</span>
-          <span className={styles.number}>{productCount}</span>
+          <span className={styles.title}>Proyectos</span>
+          <span className={styles.number}>{projectCount}</span>
           <span className={styles.detail}>
             <span className={styles.positive}>12%</span> more than last month
           </span>
@@ -56,7 +55,7 @@ const Card = async ({ searchParams }) => {
         </div>
         <div className={styles.texts}>
           <span className={styles.title}>Contratos</span>
-          <span className={styles.number}>{clientCount}</span>
+          <span className={styles.number}>{contractCount }</span>
           <span className={styles.detail}>Some detail</span>
         </div>
       </div>

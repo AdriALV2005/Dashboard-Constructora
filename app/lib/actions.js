@@ -8,7 +8,6 @@ import {
   Client,
   Contract,
   Project,
-  Person,
 } from "./models";
 import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
@@ -74,73 +73,9 @@ export const updateUser = async (formData) => {
   redirect("/dashboard/users");
 };
 
-export const updateProduct = async (formData) => {
-  const { id, title, desc, price, stock, color, size } =
-    Object.fromEntries(formData);
 
-  try {
-    connectToDB();
 
-    const updateFields = {
-      title,
-      desc,
-      price,
-      stock,
-      color,
-      size,
-    };
 
-    Object.keys(updateFields).forEach(
-      (key) =>
-        (updateFields[key] === "" || undefined) && delete updateFields[key]
-    );
-
-    await Product.findByIdAndUpdate(id, updateFields);
-  } catch (err) {
-    throw new Error("Failed to update product!");
-  }
-
-  revalidatePath("/dashboard/products");
-  redirect("/dashboard/products");
-};
-
-export const addProduct = async (formData) => {
-  const { title, desc, price, stock, color, size } =
-    Object.fromEntries(formData);
-
-  try {
-    connectToDB();
-
-    const newProduct = new Product({
-      title,
-      desc,
-      price,
-      stock,
-      color,
-      size,
-    });
-    await newProduct.save();
-  } catch (err) {
-    throw new Error("failed to creat new product");
-  }
-
-  revalidatePath("/dashboard/products");
-  redirect("/dashboard/products");
-};
-
-export const deleteProduct = async (formData) => {
-  const { id } = Object.fromEntries(formData);
-
-  try {
-    connectToDB();
-
-    await Product.findByIdAndDelete(id);
-  } catch (err) {
-    throw new Error("failed to delete new product");
-  }
-
-  revalidatePath("/dashboard/products");
-};
 
 export const deleteUser = async (formData) => {
   const { id } = Object.fromEntries(formData);
@@ -324,74 +259,9 @@ export const updateClient = async (formData) => {
 };
 //----------------------clientes ------------------------------
 
-export const deletePerson = async (formData) => {
-  const { id } = Object.fromEntries(formData);
 
-  try {
-    connectToDB();
 
-    await Person.findByIdAndDelete(id);
-  } catch (err) {
-    throw new Error("failed to delete new persona");
-  }
 
-  revalidatePath("/dashboard/persons");
-};
-
-export const addPerson = async (formData) => {
-  const { nombre, apellido, telefono, correo, direccion, edad } =
-    Object.fromEntries(formData);
-
-  try {
-    connectToDB();
-
-    const newClient = new Person({
-      nombre,
-      apellido,
-      telefono,
-      correo,
-      direccion,
-      edad,
-    });
-
-    await newClient.save();
-  } catch (err) {
-    throw new Error("failed to creat new cliente");
-  }
-
-  revalidatePath("/dashboard/persons"); //
-  redirect("/dashboard/persons");
-};
-
-export const updatePerson = async (formData) => {
-  const { id, nombre, apellido, telefono, correo, direccion, edad } =
-    Object.fromEntries(formData);
-
-  try {
-    connectToDB();
-
-    const updateFields = {
-      nombre,
-      apellido,
-      telefono,
-      correo,
-      direccion,
-      edad,
-    };
-
-    Object.keys(updateFields).forEach(
-      (key) =>
-        (updateFields[key] === "" || undefined) && delete updateFields[key]
-    );
-
-    await Person.findByIdAndUpdate(id, updateFields);
-  } catch (err) {
-    throw new Error("Failed to editar client!");
-  }
-
-  revalidatePath("/dashboard/persons");
-  redirect("/dashboard/persons");
-};
 
 //----------------------contratos ------------------------------
 

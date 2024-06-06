@@ -70,7 +70,7 @@ const AddContractPage = async ({ searchParams }) => {
         </select>
          <select name="projectNombre" id="projectNombre">
           {projects.map((project) => (
-            <option key={project.nombre} value={project.nombre}>
+            <option key={project.estado} value={project.nombre}>
               {project.nombre}
             </option>
           ))}

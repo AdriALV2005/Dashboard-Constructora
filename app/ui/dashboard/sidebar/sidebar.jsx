@@ -10,7 +10,7 @@ import {
   MdPeople,
   MdLogout,
 } from "react-icons/md";
-import { FaProjectDiagram  } from "react-icons/fa";
+import { FaProjectDiagram } from "react-icons/fa";
 import MenuLink from "./menuLink/menuLink";
 import { auth } from "@/app/auth";
 import { signOut } from "../../../auth";
@@ -28,11 +28,6 @@ const menuItems = [
         path: "/dashboard/users",
         icon: <MdSupervisedUserCircle />,
       },
-      // {
-      //   title: "Products",
-      //   path: "/dashboard/products",
-      //   icon: <MdShoppingBag />,
-      // },
       {
         title: "Trabajadores",
         path: "/dashboard/employees",
@@ -43,11 +38,7 @@ const menuItems = [
         path: "/dashboard/clients",
         icon: <MdPeople />,
       },
-      {
-        title: "Personas",
-        path: "/dashboard/persons",
-        icon: <MdPeople />,
-      },
+
       {
         title: "Contratos",
         path: "/dashboard/contracts",
@@ -56,7 +47,7 @@ const menuItems = [
       {
         title: "Proyectos",
         path: "/dashboard/projects",
-        icon: <FaProjectDiagram  />,
+        icon: <FaProjectDiagram />,
       },
     ],
   },
