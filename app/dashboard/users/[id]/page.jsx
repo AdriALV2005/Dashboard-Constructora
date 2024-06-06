@@ -1,50 +1,42 @@
 import { updateUser } from "@/app/lib/actions";
 import { fetchUser } from "@/app/lib/data";
 import styles from "@/app/ui/dashboard/users/singleUser/singleUser.module.css";
-// import Image from "next/image";
 
-const SingleUserPage = async({params}) => {
-  const {id} = params
+const SingleUserPage = async ({ params }) => {
+  const { id } = params
   const user = await fetchUser(id);
   return (
     <div className={styles.container}>
-      <div className={styles.infoContainer}>
-        {/* <div className={styles.imgContainer}>
-          <Image src={user.img||"/noavatar.png"} alt="" fill />
-        </div> */}
-        {/* {user.username} */}
-      </div>
       <div className={styles.formContainer}>
-        <form action={updateUser}className={styles.form}>
-        <div className={styles.formcompl}>
-          <div className={styles.column}>
-          <input type="hidden" name="id" value ={user.id}/>
-          <label>Username</label>
-          <input type="text" name="username" placeholder={user.username} />
-          <label>Email</label>
-          <input type="email" name="email" placeholder={user.email} />
-          <label>Password</label>
-          <input type="password" name="password" placeholder="Lupita2005" />
-    
-          <label>Phone</label>
-          <input type="text" name="phone" placeholder={user.phone}/>
+        <form action={updateUser} className={styles.form}>
+          <div className={styles.formcompl}>
+            <div className={styles.column}>
+              <input type="hidden" name="id" value={user.id} />
+              <label>Nombre de usuario</label>
+              <input type="text" name="username" placeholder={user.username} />
+              <label>Correo electrónico</label>
+              <input type="email" name="email" placeholder={user.email} />
+              <label>Contraseña</label>
+              <input type="password" name="password" placeholder="Lupita2005" />
+            </div>
+            <div className={styles.column}>
+              <label>Teléfono</label>
+              <input type="text" name="phone" placeholder={user.phone} />
+              <label>¿Es administrador?</label>
+              <select name="isAdmin" id="isAdmin">
+                <option value={true} select={user.isAdmin}>Sí</option>
+                <option value={false} select={!user.isAdmin}>No</option>
+              </select>
+              <label>¿Es activo?</label>
+              <select name="isActive" id="isActive">
+                <option value={true} select={user.isActive}>Sí</option>
+                <option value={false} select={!user.isActive}>No</option>
+              </select>
+            </div>
           </div>
-          <div className={styles.column}>
-          <label>Address</label>
-          <input type="text" name="address" placeholder={user.address} />
-          <label>Is Admin?</label>
-          <select name="isAdmin" id="isAdmin">
-            <option value={true} select={user.isAdmin}>Yes</option>
-            <option value={false}select={!user.isAdmin}>No</option>
-          </select>
-          <label>Is Active?</label>
-          <select name="isActive" id="isActive">
-            <option value={true}select={user.isActive}>Yes</option>
-            <option value={false}select={!user.isActive}>No</option>
-          </select>
-          </div>
-        </div>
-          <button>Update</button>
+          <label>Dirección</label>
+          <textarea type="text" name="address" placeholder={user.address} />
+          <button>ACTUALIZAR</button>
         </form>
       </div>
     </div>

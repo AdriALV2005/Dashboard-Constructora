@@ -7,7 +7,7 @@ const AddEmployeePage = () => {
       <form action={addEmployee} className={styles.form}>
         <div className={styles.formcompl}>
           <div className={styles.column}>
-            <h3>hola</h3>
+            <h3>Nombre del trabajador</h3>
             <input
               type="text"
               id="nombre"
@@ -17,7 +17,7 @@ const AddEmployeePage = () => {
               maxlength="20"
               required
             />
-            <h3>hola</h3>
+            <h3>Apellido del trabajador</h3>
             <input
               type="text"
               placeholder="apellido"
