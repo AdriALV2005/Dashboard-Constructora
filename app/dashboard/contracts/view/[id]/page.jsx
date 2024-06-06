@@ -50,13 +50,16 @@ const SingleContractPage = async ({ params }) => {
             <span className={styles.value}>{contract.projectNombre}</span>
           </div>
         </div>
+        <button className={styles.button}>Imprimir</button>
       </div>
       <div className={styles.img}>
         <img
           src="https://images.pexels.com/photos/5668837/pexels-photo-5668837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt="Contract"
         />
+           
       </div>
+  
     </div>
   );
 };
