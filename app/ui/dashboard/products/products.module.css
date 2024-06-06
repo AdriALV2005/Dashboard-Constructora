@@ -19,6 +19,7 @@
   border-radius: 100%;
   font-weight: bold;
   border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -46,16 +47,14 @@
   display: flex;
   gap: 10px;
 }
-
-.button {
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--text);
-  border: none;
-  cursor: pointer;
+.addButton:hover{
+  transform: translateY(-3px) scale(1.09); /* Levanta el botón 3px y lo hace un 5% más grande al pasar el mouse */
+  box-shadow: 0 4px 13px rgba(111, 106, 248, 0.9); /* Agrega una sombra */
 }
-.ver, .view, .delete {
-  width: 50px;  /* tamaño uniforme para los botones */
+.ver,
+.view,
+.delete {
+  width: 50px; /* tamaño uniforme para los botones */
   height: 50px; /* tamaño uniforme para los botones */
   display: flex;
   justify-content: center;
@@ -63,7 +62,12 @@
   border-radius: 50%; /* hace los botones redondos */
   color: #f2f2fc;
   border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
   cursor: pointer;
+}
+.ver:hover, .view:hover, .delete:hover {
+  transform: translateY(-3px) scale(1.05); /* Levanta el botón 3px y lo hace un 5% más grande al pasar el mouse */
+  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.3); /* Agrega una sombra */
 }
 .ver {
   background-color: #b0f2c2;

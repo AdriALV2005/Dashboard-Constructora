@@ -12,8 +12,14 @@
     border: none;
     margin-top: 2rem;
     cursor: pointer;
+    transition: transform 0.2s ease;
   }
   
+  .button:hover{
+    transform: translateY(-3px) ;
+  }
   .button:disabled{
     cursor: not-allowed;
+    background-color: white;
+    color: white;
   }
