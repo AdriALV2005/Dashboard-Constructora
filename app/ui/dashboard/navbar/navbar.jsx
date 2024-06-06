@@ -21,14 +21,16 @@ const Navbar = () => {
 
     title = `${greeting}, admin`;
   } else if (pathname === "/dashboard/users") {
-    title = "BRYAN PUTA";
-  } else if (pathname === "/dashboard/products") {
-    title = "BRYAN BONITO";
+    title = "Administrador de usuarios";
+
   } else if (pathname.startsWith("/dashboard/users/")) {
-    title = "LUPITA USUARIO PRUEBA";
-  }else if (pathname.startsWith("/dashboard/products/")) {
+    title = "Agregar usuario nuevo";
+
+  } else if (pathname.startsWith("/dashboard/employees/")) {
     title = "LUPITA PRODUCTO PRUEBA";
   }
+
+
 
   return (
     <div className={styles.container}>

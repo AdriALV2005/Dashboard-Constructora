@@ -17,7 +17,7 @@ const UsersPage = async ({ searchParams }) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <Search placeholder="Search for a user" />
+        <Search placeholder="Busca un usuario ..." />
         <Link href="/dashboard/users/add">
           <button className={styles.addButton}>+</button>
         </Link>
@@ -25,12 +25,13 @@ const UsersPage = async ({ searchParams }) => {
       <table className={styles.table}>
         <thead>
           <tr>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Created At</td>
-            <td>Role</td>
-            <td>Status</td>
-            <td>Action</td>
+            <td>Nombre</td>
+            <td>Correo Electrónico</td>
+            <td>Fecha de Creación</td>
+            <td>Rol</td>
+            <td>Estado</td>
+            <td>Acción</td>
+
           </tr>
         </thead>
         <tbody>
@@ -54,10 +55,10 @@ const UsersPage = async ({ searchParams }) => {
               <td>{user.isAdmin ? "active" : "passive"}</td>
               <td>
                 <div className={styles.buttons}>
-                <Link href={`/dashboard/users/view/${user.id}`}>
-                <button className={`${styles.button} ${styles.ver}`}>
-                    <FaEye size={23} />
-                  </button>
+                  <Link href={`/dashboard/users/view/${user.id}`}>
+                    <button className={`${styles.button} ${styles.ver}`}>
+                      <FaEye size={23} />
+                    </button>
                   </Link>
                   <Link href={`/dashboard/users/${user.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
@@ -67,7 +68,7 @@ const UsersPage = async ({ searchParams }) => {
                   <form action={deleteUser}>
                     <input type="hidden" name="id" value={user.id} />
                     <button className={`${styles.button} ${styles.delete}`}>
-                    <MdDelete size={23} />
+                      <MdDelete size={23} />
                     </button>
                   </form>
                 </div>

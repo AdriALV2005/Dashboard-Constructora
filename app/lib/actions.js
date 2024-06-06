@@ -1,7 +1,14 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { Product, User, Employee, Client, Contract, Project, Person } from "./models";
+import {
+  
+  User,
+  Employee,
+  Client,
+  Contract,
+  Project,
+} from "./models";
 import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
@@ -66,73 +73,9 @@ export const updateUser = async (formData) => {
   redirect("/dashboard/users");
 };
 
-export const updateProduct = async (formData) => {
-  const { id, title, desc, price, stock, color, size } =
-    Object.fromEntries(formData);
 
-  try {
-    connectToDB();
 
-    const updateFields = {
-      title,
-      desc,
-      price,
-      stock,
-      color,
-      size,
-    };
 
-    Object.keys(updateFields).forEach(
-      (key) =>
-        (updateFields[key] === "" || undefined) && delete updateFields[key]
-    );
-
-    await Product.findByIdAndUpdate(id, updateFields);
-  } catch (err) {
-    throw new Error("Failed to update product!");
-  }
-
-  revalidatePath("/dashboard/products");
-  redirect("/dashboard/products");
-};
-
-export const addProduct = async (formData) => {
-  const { title, desc, price, stock, color, size } =
-    Object.fromEntries(formData);
-
-  try {
-    connectToDB();
-
-    const newProduct = new Product({
-      title,
-      desc,
-      price,
-      stock,
-      color,
-      size,
-    });
-    await newProduct.save();
-  } catch (err) {
-    throw new Error("failed to creat new product");
-  }
-
-  revalidatePath("/dashboard/products");
-  redirect("/dashboard/products");
-};
-
-export const deleteProduct = async (formData) => {
-  const { id } = Object.fromEntries(formData);
-
-  try {
-    connectToDB();
-
-    await Product.findByIdAndDelete(id);
-  } catch (err) {
-    throw new Error("failed to delete new product");
-  }
-
-  revalidatePath("/dashboard/products");
-};
 
 export const deleteUser = async (formData) => {
   const { id } = Object.fromEntries(formData);
@@ -203,10 +146,9 @@ export const addEmployee = async (formData) => {
       edad,
       cargo,
     });
- 
+
     await newEmployee.save();
   } catch (err) {
-  
     throw new Error("failed to creat new lupe");
   }
 
@@ -255,7 +197,6 @@ export const deleteClient = async (formData) => {
 
     await Client.findByIdAndDelete(id);
   } catch (err) {
-   
     throw new Error("failed to delete new client");
   }
 
@@ -277,10 +218,9 @@ export const addClient = async (formData) => {
       direccion,
       edad,
     });
-  
+
     await newClient.save();
   } catch (err) {
-
     throw new Error("failed to creat new cliente");
   }
 
@@ -317,78 +257,11 @@ export const updateClient = async (formData) => {
   revalidatePath("/dashboard/clients");
   redirect("/dashboard/clients");
 };
-//----------------------clientes ------------------------------
+//----------------------aqui hiba personas  ------------------------------
 
-export const deletePerson = async (formData) => {
-  const { id } = Object.fromEntries(formData);
 
-  try {
-    connectToDB();
 
-    await Person.findByIdAndDelete(id);
-  } catch (err) {
-   
-    throw new Error("failed to delete new persona");
-  }
 
-  revalidatePath("/dashboard/persons");
-};
-
-export const addPerson = async (formData) => {
-  const { nombre, apellido, telefono, correo, direccion, edad } =
-    Object.fromEntries(formData);
-
-  try {
-    connectToDB();
-
-    const newClient = new Person({
-      nombre,
-      apellido,
-      telefono,
-      correo,
-      direccion,
-      edad,
-    });
-  
-    await newClient.save();
-  } catch (err) {
-
-    throw new Error("failed to creat new cliente");
-  }
-
-  revalidatePath("/dashboard/persons"); //
-  redirect("/dashboard/persons");
-};
-
-export const updatePerson = async (formData) => {
-  const { id, nombre, apellido, telefono, correo, direccion, edad } =
-    Object.fromEntries(formData);
-
-  try {
-    connectToDB();
-
-    const updateFields = {
-      nombre,
-      apellido,
-      telefono,
-      correo,
-      direccion,
-      edad,
-    };
-
-    Object.keys(updateFields).forEach(
-      (key) =>
-        (updateFields[key] === "" || undefined) && delete updateFields[key]
-    );
-
-    await Person.findByIdAndUpdate(id, updateFields);
-  } catch (err) {
-    throw new Error("Failed to editar client!");
-  }
-
-  revalidatePath("/dashboard/persons");
-  redirect("/dashboard/persons");
-};
 
 //----------------------contratos ------------------------------
 
@@ -400,16 +273,23 @@ export const deleteContract = async (formData) => {
 
     await Contract.findByIdAndDelete(id);
   } catch (err) {
-  
-    throw new Error("fallo al crea contrato ");
+    throw new Error("failed to delete new contract");
   }
 
   revalidatePath("/dashboard/contracts");
 };
 
 export const addContract = async (formData) => {
-  const { titulo, fechainicio, fechafin, estado, tipo, empleadoNombre , clienteNombre , projectoNombre } =
-    Object.fromEntries(formData);
+  const {
+    titulo,
+    fechainicio,
+    projectNombre,
+    fechafin,
+    estado,
+    tipo,
+    empleadoNombre,
+    clienteNombre,
+  } = Object.fromEntries(formData);
 
   try {
     connectToDB();
@@ -422,12 +302,12 @@ export const addContract = async (formData) => {
       tipo,
       empleadoNombre,
       clienteNombre,
-      projectoNombre
+      projectNombre,
     });
 
     await newContract.save();
   } catch (err) {
-    console.log(err)
+    console.log(err);
     throw new Error("failed to creat new contract");
   }
 
@@ -436,8 +316,17 @@ export const addContract = async (formData) => {
 };
 
 export const updateContract = async (formData) => {
-  const { id,titulo, fechainicio, fechafin, estado, tipo, empleadoNombre , clienteNombre , projectoNombre} =
-    Object.fromEntries(formData);
+  const {
+    id,
+    titulo,
+    fechainicio,
+    fechafin,
+    estado,
+    tipo,
+    empleadoNombre,
+    clienteNombre,
+    projectNombre,
+  } = Object.fromEntries(formData);
 
   try {
     connectToDB();
@@ -446,11 +335,12 @@ export const updateContract = async (formData) => {
       titulo,
       fechainicio,
       fechafin,
+      clienteNombre,
       estado,
       tipo,
       empleadoNombre,
-      clienteNombre,
-      projectoNombre
+      projectNombre,
+      
     };
 
     Object.keys(updateFields).forEach(
@@ -477,14 +367,13 @@ export const deleteProject = async (formData) => {
 
     await Project.findByIdAndDelete(id);
   } catch (err) {
-   
     throw new Error("failed to delete new Project");
   }
 
   revalidatePath("/dashboard/projects");
 };
 
-export const addProject= async (formData) => {
+export const addProject = async (formData) => {
   const { nombre, fechainicio, fechafin, estado } =
     Object.fromEntries(formData);
 
@@ -496,12 +385,10 @@ export const addProject= async (formData) => {
       fechainicio,
       fechafin,
       estado,
-     
     });
-  
+
     await newProject.save();
   } catch (err) {
-  
     throw new Error("failed to creat new newProject");
   }
 

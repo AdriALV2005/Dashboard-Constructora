@@ -10,20 +10,20 @@ const AddUserPage = () => {
       <form action={addUser} className={styles.form}>
         <div className={styles.formcompl}>
           <div className={styles.column}>
-            <h3>hola</h3>
-            <input type="text" placeholder="username" name="username" required />
-            <h3>hola</h3>
-            <input type="email" placeholder="email" name="email" required />
-            <h3>hola</h3>
+            <h3>Nombre de usuario</h3>
+            <input type="text" placeholder="Ingrese su nombre de usuario ..." name="username" required />
+            <h3>Correo electronico</h3>
+            <input type="email" placeholder="Ingrese su correo electronico ..." name="email" required />
+            <h3></h3>
             <input
               type="password"
               placeholder="password"
               name="password"
               required
             />
-             </div>
+          </div>
           <div className={styles.column}>
-          <h3>hola</h3>
+            <h3>hola</h3>
             <input type="phone" placeholder="phone" name="phone" />
             <h3>hola</h3>
             <select name="isAdmin" id="isAdmin" required>
@@ -52,6 +52,10 @@ const AddUserPage = () => {
         <button type="submit">Submit</button>
       </form>
     </div>
+
+
+
+
   );
 };
 

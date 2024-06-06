@@ -1,5 +1,5 @@
 import { fetchEmployee } from "@/app/lib/data";
-import styles from "@/app/ui/dashboard/products/singleProduct/singleProduct.module.css";
+import styles from "@/app/ui/dashboard/products/viewProduct/viewProduct.module.css";
 
 
 
@@ -9,13 +9,35 @@ const SingleEmployeePage = async ({ params }) => {
 
   return (
     <div className={styles.container}>
-      <div>
-        <h1>{employee.nombre} {employee.apellido}</h1>
-        <p>Teléfono: {employee.telefono}</p>
-        <p>Correo: {employee.correo}</p>
-        <p>Dirección: {employee.direccion}</p>
-        <p>Edad: {employee.edad}</p>
-        <p>Cargo: {employee.cargo}</p>
+      <div className={styles.employeeInfo}>
+        <div className={styles.header}>
+          <h2>{employee.nombre} {employee.apellido}</h2>
+        </div>
+        <div className={styles.details}>
+          <div className={styles.detailItem}>
+            <span className={styles.label}>Teléfono:</span>
+            <span className={styles.value}>{employee.telefono}</span>
+          </div>
+          <div className={styles.detailItem}>
+            <span className={styles.label}>Correo:</span>
+            <span className={styles.value}>{employee.correo}</span>
+          </div>
+          <div className={styles.detailItem}>
+            <span className={styles.label}>Dirección:</span>
+            <span className={styles.value}>{employee.direccion}</span>
+          </div>
+          <div className={styles.detailItem}>
+            <span className={styles.label}>Edad:</span>
+            <span className={styles.value}>{employee.edad}</span>
+          </div>
+          <div className={styles.detailItem}>
+            <span className={styles.label}>Cargo:</span>
+            <span className={styles.value}>{employee.cargo}</span>
+          </div>
+        </div>
+      </div>
+      <div className={styles.img}>
+        <img src="https://images.pexels.com/photos/7256738/pexels-photo-7256738.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Employee" />
       </div>
     </div>
   );
