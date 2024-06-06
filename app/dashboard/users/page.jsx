@@ -31,7 +31,6 @@ const UsersPage = async ({ searchParams }) => {
             <td>Rol</td>
             <td>Estado</td>
             <td>Acción</td>
-
           </tr>
         </thead>
         <tbody>
