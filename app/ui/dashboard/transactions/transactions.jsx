@@ -1,102 +1,63 @@
 import Image from "next/image";
 import styles from "./transactions.module.css";
+import { fetchProjects } from "@/app/lib/data";
+import { fetchEmployees } from "@/app/lib/data";
+import { fetchClients } from "@/app/lib/data";
+import { fetchContracts } from "@/app/lib/data";
 
-const Transactions = () => {
+const Transactions = async ({ searchParams }) => {
+  const q = searchParams?.q || "";
+  const page = searchParams?.page || 1;
+  const { projects } = await fetchProjects(q, page);
+  const { employees } = await fetchEmployees(q, page);
+  const { clients } = await fetchClients(q, page);
+  const { contracts } = await fetchContracts(q, page);
+
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Latest Transactions</h2>
+      <h2 className={styles.title}>Campos Generales </h2>
       <table className={styles.table}>
         <thead className={styles.tr}>
           <tr >
-            <td>Name</td>
-            <td>Status</td>
-            <td>Date</td>
-            <td>Amount</td>
+            <td>Proyectos</td>
+            <td>Trabajadores</td>
+            <td>Clientes</td>
+            <td>Contratos</td>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John doe
-              </div>
+              {projects.map((project) => (
+                <div className={styles.user} key={project.id}>
+                  {project.nombre}
+                </div>
+              ))}
             </td>
             <td>
-              <span className={`${styles.status} ${styles.pending}`}>
-                Pending
-              </span>
+              {employees.map((employee) => (
+                <div className={styles.user} key={employee.id}>
+                  {employee.nombre}
+                </div>
+              ))}
             </td>
-            <td>14.02.2024</td>
-            <td>$3.200</td>
+         
+            <td>
+              {clients.map((client) => (
+                <div className={styles.user} key={client.id}>
+                  {client.nombre}
+                </div>
+              ))}
+            </td>
+            <td>
+              {contracts.map((contract) => (
+                <div className={styles.user} key={contract.id}>
+                  {contract.titulo}
+                </div>
+              ))}
+            </td>
           </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John doe
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.done}`}>Done</span>
-            </td>
-            <td>14.02.2024</td>
-            <td>$3.200</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John doe
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.cancelled}`}>
-                Cancelled
-              </span>
-            </td>
-            <td>14.02.2024</td>
-            <td>$3.200</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                adribell reyna
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.pending}`}>
-                Pending de sexo
-              </span>
-            </td>
-            <td>14.02.2024</td>
-            <td>$3.200</td>
-          </tr>
+
         </tbody>
       </table>
     </div>

@@ -19,9 +19,7 @@ const Card = async ({ searchParams }) => {
         <div className={styles.texts}>
           <span className={styles.title}>Proyectos</span>
           <span className={styles.number}>{projectCount}</span>
-          <span className={styles.detail}>
-            <span className={styles.positive}>12%</span> more than last month
-          </span>
+          <span className={styles.detail}>Más detalles ...</span>
         </div>
       </a>
       <a href="/dashboard/employees/" className={styles.container}>
@@ -31,7 +29,7 @@ const Card = async ({ searchParams }) => {
         <div className={styles.texts}>
           <span className={styles.title}>Trabajadores</span>
           <span className={styles.number}>{employeeCount}</span>
-          <span className={styles.detail}>Some detail</span>
+          <span className={styles.detail}>Más detalles ...</span>
         </div>
       </a>
       <a href="/dashboard/clients/" className={styles.container}>
@@ -41,7 +39,7 @@ const Card = async ({ searchParams }) => {
         <div className={styles.texts}>
           <span className={styles.title}>Clientes</span>
           <span className={styles.number}>{clientCount}</span>
-          <span className={styles.detail}>Some detail</span>
+          <span className={styles.detail}>Más detalles ...</span>
         </div>
       </a>
       <a href="/dashboard/contracts/" className={styles.container}>
@@ -51,7 +49,7 @@ const Card = async ({ searchParams }) => {
         <div className={styles.texts}>
           <span className={styles.title}>Contratos</span>
           <span className={styles.number}>{contractCount}</span>
-          <span className={styles.detail}>Some detail</span>
+          <span className={styles.detail}>Más detalles ...</span>
         </div>
       </a>
     </>

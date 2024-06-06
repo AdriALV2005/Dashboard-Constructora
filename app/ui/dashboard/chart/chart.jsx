@@ -1,5 +1,6 @@
 "use client";
 
+
 import styles from "./chart.module.css";
 import {
   LineChart,
@@ -14,39 +15,25 @@ import {
 const data = [
   {
     name: "enero",
-    visit: 4000,
+    visit: 4,
     click: 2400,
   },
   {
     name: "feb",
-    visit: 3000,
+    visit: 3,
     click: 1398,
   },
   {
     name: "mar",
-    visit: 2000,
+    visit: 3,
     click: 3800,
   },
   {
     name: "abril",
-    visit: 2780,
+    visit: 5,
     click: 3908,
   },
-  {
-    name: "mayo",
-    visit: 1890,
-    click: 4800,
-  },
-  {
-    name: "jun",
-    visit: 2390,
-    click: 3800,
-  },
-  {
-    name: "jul",
-    visit: 2500,
-    click: 2000,
-  },
+ 
 ];
 
 const Chart = () => {
