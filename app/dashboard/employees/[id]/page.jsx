@@ -13,26 +13,21 @@ const SingleEmployeePage = async ({ params }) => {
       <div className={styles.formContainer}>
         <form action={updateEmployee} className={styles.form}>
           <input type="hidden" name="id" value={employee.id} />
-          <label>Nombre</label>
+          <h3>Nombre del trabajador</h3>
           <input type="text" name="nombre" placeholder={employee.nombre} />
-          <label>Apellido</label>
+          <h3>Apellido del trabajador</h3>
           <input type="text" name="apellido" placeholder={employee.apellido} />
-          <label>Telefono</label>
+          <h3>Teléfono del trabajador</h3>
           <input type="number" name="telefono" placeholder={employee.telefono} />
-          <label>correo</label>
+          <h3>Correo electrónico del trabajador</h3>
           <input type="email" name="correo" placeholder={employee.correo} />
-          <label>direccion</label>
+          <h3>Dirreción del trabajador</h3>
           <input type="text" name="direccion" placeholder={employee.direccion} />
-          <label>edad</label>
+          <h3>Edad del trabajador</h3>
           <input type="number" name="stock" placeholder={employee.telefono} />
-          <label>cargo</label>
+          <h3>Cargo del trabajador</h3>
           <input type="text" name="stock" placeholder={employee.cargo} />
-         
-         
-        
-       
-        
-          <button>Update</button>
+          <button>ACTUALIZAR</button>
         </form>
       </div>
     </div>

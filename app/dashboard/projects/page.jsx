@@ -16,7 +16,7 @@ const ProjectsPage = async ({ searchParams }) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <Search placeholder="Search for a product" />
+        <Search placeholder="Buscar un proyecto ..." />
         <Link href="/dashboard/projects/add">
           <button className={styles.addButton}>+</button>
         </Link>
@@ -25,10 +25,10 @@ const ProjectsPage = async ({ searchParams }) => {
         <thead>
           <tr>
             <td>Nombre</td>
-            <td>Fecha Inicio</td>
-            <td>Fecha Fin</td>
+            <td>Fecha de inicio</td>
+            <td>Fecha de fin</td>
             <td>Estado</td>
-            <td>Action</td>
+            <td>Acción</td>
           </tr>
         </thead>
         <tbody>

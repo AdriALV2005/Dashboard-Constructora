@@ -11,7 +11,7 @@ const SingleProjectPage = async ({ params }) => {
       <div className={styles.formContainer}>
         <form action={updateProject} className={styles.form}>
           <input type="hidden" name="id" value={project.id} />
-          <h3>hola</h3>
+          <h3>Nombre del proyecto</h3>
           <input
             type="text"
             placeholder={project.nombre}
@@ -19,7 +19,7 @@ const SingleProjectPage = async ({ params }) => {
             name="nombre"
             required
           />
-          <h3>hola</h3>
+          <h3>Fecha de inicio del proyecto</h3>
           <input
             type="date"
             placeholder={project.fechainicio}
@@ -27,7 +27,7 @@ const SingleProjectPage = async ({ params }) => {
             name="fechainicio"
             required
           />
-          <h3>hola</h3>
+          <h3>Fecha de fin del proyecto</h3>
           <input
             type="date"
             placeholder={project.fechafin}
@@ -35,13 +35,13 @@ const SingleProjectPage = async ({ params }) => {
             name="fechafin"
             required
           />
-          <h3>hola</h3>
+          <h3>Estado del proyecto</h3>
           <select name="estado" id="estado">
             <option value="Comenzando">Comenzando</option>
             <option value="En proceso">En Proceso</option>
             <option value="Terminado">Terminado</option>
           </select>
-          <button>Update</button>
+          <button>ACTUALIZAR</button>
         </form>
       </div>
     </div>

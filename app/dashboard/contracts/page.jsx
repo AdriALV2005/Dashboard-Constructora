@@ -16,7 +16,7 @@ const ContractsPage = async ({ searchParams }) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <Search placeholder="Search for a product" />
+        <Search placeholder="Buscar un contrato ..." />
         <Link href="/dashboard/contracts/add">
           <button className={styles.addButton}>+</button>
         </Link>
@@ -25,14 +25,14 @@ const ContractsPage = async ({ searchParams }) => {
         <thead>
           <tr>
             <td>Titulo</td>
-            <td>Fecha Inicio</td>
-            <td>Fecha Fin</td>
+            <td>Fecha de inicio</td>
+            <td>Fecha de fin</td>
             <td>Estado</td>
             <td>Tipo</td>
             <td>Empleado</td>
             <td>Cliente</td>
             <td>Proyecto</td>
-            <td>Action</td>
+            <td>Acción</td>
           </tr>
         </thead>
         <tbody>

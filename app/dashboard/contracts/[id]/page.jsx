@@ -14,8 +14,9 @@ const SingleContractPage = async ({ params, searchParams }) => {
     <div className={styles.container}>
       <div className={styles.formContainer}>
         <form action={updateContract} className={styles.form}>
-          <input type="hidden" name="id" value={contract.id} />
-          <h3>hola</h3>
+        <div className={styles.formcompl}>
+          <div className={styles.column}>
+          <h3>Título del contrato</h3>
           <input
             type="text"
             placeholder={contract.titulo}
@@ -23,7 +24,7 @@ const SingleContractPage = async ({ params, searchParams }) => {
             name="titulo"
             required
           />
-          <h3>hola</h3>
+          <h3>Fecha de inicio del contrato</h3>
           <input
             type="date"
             placeholder={contract.fechainicio}
@@ -31,7 +32,7 @@ const SingleContractPage = async ({ params, searchParams }) => {
             name="fechainicio"
             required
           />
-          <h3>hola</h3>
+          <h3>Fecha de fin del contrato</h3>
           <input
             type="date"
             placeholder={contract.fechafin}
@@ -39,19 +40,21 @@ const SingleContractPage = async ({ params, searchParams }) => {
             name="fechafin"
             required
           />
-          <h3>hola</h3>
+          <h3>Estado del contrato</h3>
           <select name="estado" id="estado">
             <option value={true}>Estado</option>
             <option value={true}>Activo</option>
             <option value={false}>Inactivo</option>
           </select>
-          <h3>hola</h3>
+          </div>
+          <div className={styles.column}>
+          <h3>Tipo de contrato</h3>
           <select name="tipo" id="tipo">
             <option value={true}>Tipo</option>
             <option value={true}>Largo plazo</option>
             <option value={false}>Corto plazo</option>
           </select>
-          <h3>hola</h3>
+          <h3>Empleado encargado</h3>
           <select name="empleadoNombre" id="empleadoNombre">
             {employees.map((employee) => (
               <option key={employee.nombre} value={employee.nombre}>
@@ -59,6 +62,7 @@ const SingleContractPage = async ({ params, searchParams }) => {
               </option>
             ))}
           </select>
+          <h3>Cliente del contrato</h3>
           <select name="clienteNombre" id="clienteNombre">
             {clients.map((client) => (
               <option key={client.nombre} value={client.nombre}>
@@ -66,6 +70,7 @@ const SingleContractPage = async ({ params, searchParams }) => {
               </option>
             ))}
           </select>
+          <h3>Proyecto del contrato</h3>
           <select name="projectNombre" id="projectNombre">
             {projects.map((project) => (
               <option key={project.nombre} value={project.nombre}>
@@ -73,7 +78,9 @@ const SingleContractPage = async ({ params, searchParams }) => {
               </option>
             ))}
           </select>
-          <button>Update</button>
+          </div>
+        </div>
+          <button>ACTUALIZAR</button>
         </form>
       </div>
     </div>

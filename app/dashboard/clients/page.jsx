@@ -16,7 +16,7 @@ const ClientsPage = async ({ searchParams }) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <Search placeholder="Search for a user" />
+        <Search placeholder="Buscar un cliente ..." />
         <Link href="/dashboard/clients/add">
           <button className={styles.addButton}>+</button>
         </Link>
@@ -26,9 +26,9 @@ const ClientsPage = async ({ searchParams }) => {
           <tr>
             <td>Nombre</td>
             <td>Apellido</td>
-            <td>Telefono</td>
+            <td>Teléfono</td>
             <td>Correo</td>
-            <td>Action</td>
+            <td>Acción</td>
           </tr>
         </thead>
         <tbody>

@@ -13,20 +13,20 @@ const SingleClientPage = async ({ params }) => {
             <div className={styles.formContainer}>
                 <form action={updateClient} className={styles.form}>
                     <input type="hidden" name="id" value={client.id} />
-                    <label>Nombre</label>
+                    <h3>Nombre del cliente</h3>
                     <input type="text" name="nombre" placeholder={client.nombre} />
-                    <label>Apellido</label>
+                    <h3>Apellido del cliente</h3>
                     <input type="text" name="apellido" placeholder={client.apellido} />
-                    <label>Telefono</label>
+                    <h3>Teléfono del cliente</h3>
                     <input type="number" name="telefono" placeholder={client.telefono} />
-                    <label>correo</label>
+                    <h3>Correo electrónico del cliente</h3>
                     <input type="email" name="correo" placeholder={client.correo} />
-                    <label>direccion</label>
+                    <h3>Dirección del cliente</h3>
                     <input type="text" name="direccion" placeholder={client.direccion} />
-                    <label>edad</label>
+                    <h3>Edad del cliente</h3>
                     <input type="number" name="stock" placeholder={client.telefono} />
 
-                    <button>Update</button>
+                    <button>ACTUALIZAR</button>
                 </form>
             </div>
         </div>
